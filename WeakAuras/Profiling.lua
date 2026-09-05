@@ -193,7 +193,7 @@ local function StopProfileUID(uid)
 end
 
 function Private.ProfileRenameAura(oldid, id)
-  profileData.auras[id] = profileData.auras[id]
+  profileData.auras[id] = profileData.auras[oldid]
   profileData.auras[oldid] = nil
 end
 
