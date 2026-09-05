@@ -2079,6 +2079,8 @@ function WeakAuras.Delete(data)
 
   Private.RemoveHistory(data.uid)
 
+  Private.ProfileDeleteAura(id)
+
   Private.AddParents(data)
   Private.callbacks:Fire("Delete", uid, id, parentUid, parentId)
 end
