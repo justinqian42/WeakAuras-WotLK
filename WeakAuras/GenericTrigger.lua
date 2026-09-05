@@ -434,6 +434,14 @@ function ConstructFunction(prototype, trigger)
     table.insert(ret, "print('ret: true');\n")
   end
 
+  if prototype.countEvents then
+    table.insert(ret, "  local count = counter:GetNext()\n")
+    if trigger.use_count and type(trigger.count) == "string" and trigger.count ~= "" then
+      table.insert(ret, "  local match = counter:Match()")
+      table.insert(ret, "  if not match then return false end\n")
+    end
+  end
+
   if (prototype.statesParameter == "all") then
     table.insert(ret, "  state[cloneId] = state[cloneId] or {}\n")
     table.insert(ret, "  state = state[cloneId]\n")
@@ -441,11 +449,6 @@ function ConstructFunction(prototype, trigger)
   end
 
   if prototype.countEvents then
-    table.insert(ret, "  local count = counter:GetNext()\n")
-    if trigger.use_count and type(trigger.count) == "string" and trigger.count ~= "" then
-      table.insert(ret, "  local match = counter:Match()")
-      table.insert(ret, "  if not match then return false end\n")
-    end
     table.insert(ret, "  state.count = count\n")
     table.insert(ret, "  state.changed = true\n")
   end
