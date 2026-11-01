@@ -406,7 +406,21 @@ local Uncategorized =
 		{
 			Name = "FindSpellBookSlotByID",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns the zero-based spellbook slot, or nil if the spell is absent. Add 1 before using it with one-based spellbook APIs.",
+			}, ]]
 
+			Arguments =
+			{
+				{ Name = "spellID", Type = "number", Nilable = false },
+				{ Name = "isPet", Type = "bool", Nilable = true, Default = false },
+			},
+
+			Returns =
+			{
+				{ Name = "slot", Type = "number", Nilable = true },
+			},
 		},
 		{
 			Name = "ForceGossip",
@@ -607,7 +621,29 @@ local Uncategorized =
 		{
 			Name = "GetLFGQueueStats",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns no values when no active queue is available. The final value is the queue start timestamp in seconds on the GetTime() time base, not elapsed queue time.",
+				"The second value is always 0. Values six through thirteen may be nil when dungeon data is unavailable.",
+			}, ]]
 
+
+			Returns =
+			{
+				{ Name = "queued", Type = "bool", Nilable = true },
+				{ Name = "reserved", Type = "number", Nilable = true },
+				{ Name = "tanksNeeded", Type = "number", Nilable = true },
+				{ Name = "healersNeeded", Type = "number", Nilable = true },
+				{ Name = "damageNeeded", Type = "number", Nilable = true },
+				{ Name = "queueType", Type = "number", Nilable = true },
+				{ Name = "dungeonName", Type = "string", Nilable = true },
+				{ Name = "tankWait", Type = "number", Nilable = true },
+				{ Name = "healerWait", Type = "number", Nilable = true },
+				{ Name = "damageWait", Type = "number", Nilable = true },
+				{ Name = "myWait", Type = "number", Nilable = true },
+				{ Name = "averageWait", Type = "number", Nilable = true },
+				{ Name = "queueStartTime", Type = "number", Nilable = true },
+			},
 		},
 		{
 			Name = "GetLFGQueuedList",
@@ -751,6 +787,12 @@ local Uncategorized =
 			Name = "GetRaidDifficulty",
 			Type = "Function",
 
+
+			Returns =
+			{
+				{ Name = "difficulty", Type = "number", Nilable = false, --[[ Documentation = { "Applicable group or local difficulty, one-based." } ]] },
+				{ Name = "playerDifficulty", Type = "number", Nilable = false, --[[ Documentation = { "Local player difficulty, one-based." } ]] },
+			},
 		},
 		{
 			Name = "GetRandomBGHonorCurrencyBonuses",
@@ -1117,7 +1159,22 @@ local Uncategorized =
 		{
 			Name = "UnitGroupRolesAssigned",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns three Lua booleans in tank, healer, damage order. Does not return a role token such as TANK or NONE. These are assigned group roles, not a talent-based role prediction.",
+			}, ]]
 
+			Arguments =
+			{
+				{ Name = "unit", Type = "UnitToken", Nilable = false },
+			},
+
+			Returns =
+			{
+				{ Name = "tank", Type = "bool", Nilable = false },
+				{ Name = "healer", Type = "bool", Nilable = false },
+				{ Name = "damage", Type = "bool", Nilable = false },
+			},
 		},
 		{
 			Name = "UnitHasLFGDeserter",
@@ -1137,6 +1194,18 @@ local Uncategorized =
 		{
 			Name = "GetAvailableRoles",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns which roles the player class can select, not the currently assigned group roles.",
+			}, ]]
+
+
+			Returns =
+			{
+				{ Name = "tank", Type = "bool", Nilable = false },
+				{ Name = "healer", Type = "bool", Nilable = false },
+				{ Name = "damage", Type = "bool", Nilable = false },
+			},
 		},
 		{
 			Name = "GetLFDChoiceInfo",

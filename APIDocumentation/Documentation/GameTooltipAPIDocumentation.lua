@@ -32,9 +32,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Adds `FontString` objects to the tooltip, allowing it to display an additional line of text" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "AddLine",
@@ -76,27 +73,18 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Clears the tooltip's contents" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "FadeOut",
 			Type = "Function",
 			-- Documentation = { "Causes the tooltip to begin fading out" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetAnchorType",
 			Type = "Function",
 			-- Documentation = { "Returns the method for anchoring the tooltip relative to its owner" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -108,9 +96,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the name and hyperlink for the item displayed in the tooltip" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -123,9 +108,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the minimum width of the tooltip" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -137,9 +119,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the frame to which the tooltip refers and is anchored" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -151,9 +130,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the amount of space between tooltip's text and its right-side edge" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -165,9 +141,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Returns information about the spell displayed in the tooltip" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -181,9 +154,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Returns information about the unit displayed in the tooltip" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -196,9 +166,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the tooltip is displaying an item currently equipped by the player" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -210,9 +177,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the tooltip has an owner frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -239,9 +203,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the number of lines of text currently shown in the tooltip" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -286,9 +247,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Fills the tooltip with information about the item currently being set up for auction" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetBackpackToken",
@@ -305,9 +263,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Fills the tooltip with information about an item in the player's bags" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetBuybackItem",
@@ -443,18 +398,12 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetLFGDungeonReward",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetLootItem",
@@ -577,9 +526,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Fills the tooltip with information about the reward spell for the selected quest in the quest log" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetQuestLogSpecialItem",
@@ -596,9 +542,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Fills the tooltip with information about the spell reward in a questgiver dialog" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetSendMailItem",
@@ -635,18 +578,12 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Fills the tooltip with information about the item currently being socketed" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetSpell",
 			Type = "Function",
 			-- Documentation = { "Fills the tooltip with information about a spell from the player (or pet's) spellbook" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetSpellByID",
@@ -701,9 +638,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Fills the tooltip with information about the currently selected tracking type" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetTradePlayerItem",
@@ -797,9 +731,6 @@ local GameTooltipAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{

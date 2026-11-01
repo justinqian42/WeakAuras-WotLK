@@ -26,9 +26,6 @@ local FontAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the opacity for text displayed by the font" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -40,9 +37,6 @@ local FontAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetAlpha",
@@ -59,9 +53,6 @@ local FontAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 	},
 

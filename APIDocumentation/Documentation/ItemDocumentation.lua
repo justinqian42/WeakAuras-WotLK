@@ -85,19 +85,21 @@ local Item =
 		{
 			Name = "GetItemCooldown",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Accepts one item ID, item name or item link. Start and duration are seconds on the GetTime() time base. enabled is numeric, not a Lua boolean.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "itemID", Type = "number", Nilable = true },
-				{ Name = "itemName", Type = "string", Nilable = true },
-				{ Name = "itemLink", Type = "string", Nilable = true },
+				{ Name = "item", Type = "ItemInfo", Nilable = false },
 			},
 
 			Returns =
 			{
 				{ Name = "start", Type = "number", Nilable = false },
-				{ Name = "duration", Type = "time_t", Nilable = false },
-				{ Name = "enable", Type = "number", Nilable = false },
+				{ Name = "duration", Type = "number", Nilable = false },
+				{ Name = "enabled", Type = "number", Nilable = false },
 			},
 		},
 		{
@@ -171,27 +173,30 @@ local Item =
 		{
 			Name = "GetItemInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Accepts one item ID, item name or item link. Returns no values if the item record is not available in the client cache; a missing result does not prove that the item ID is invalid.",
+				"Returns eleven values, ending with the item sell price.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "itemID", Type = "number", Nilable = true },
-				{ Name = "itemName", Type = "string", Nilable = true },
-				{ Name = "itemLink", Type = "string", Nilable = true },
+				{ Name = "item", Type = "ItemInfo", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "link", Type = "string", Nilable = false },
-				{ Name = "quality", Type = "itemQuality", Nilable = false },
-				{ Name = "iLevel", Type = "number", Nilable = false },
-				{ Name = "reqLevel", Type = "number", Nilable = false },
-				{ Name = "class", Type = "string", Nilable = false },
-				{ Name = "subclass", Type = "string", Nilable = false },
-				{ Name = "maxStack", Type = "number", Nilable = false },
-				{ Name = "equipSlot", Type = "string", Nilable = false },
-				{ Name = "texture", Type = "string", Nilable = false },
-				{ Name = "vendorPrice", Type = "number", Nilable = false },
+				{ Name = "itemName", Type = "cstring", Nilable = true },
+				{ Name = "itemLink", Type = "cstring", Nilable = true },
+				{ Name = "itemRarity", Type = "ItemQuality", Nilable = true },
+				{ Name = "itemLevel", Type = "number", Nilable = true },
+				{ Name = "itemMinLevel", Type = "number", Nilable = true },
+				{ Name = "itemType", Type = "cstring", Nilable = true },
+				{ Name = "itemSubType", Type = "cstring", Nilable = true },
+				{ Name = "itemStackCount", Type = "number", Nilable = true },
+				{ Name = "itemEquipLoc", Type = "cstring", Nilable = true },
+				{ Name = "itemTexture", Type = "string", Nilable = true },
+				{ Name = "itemSellPrice", Type = "number", Nilable = true },
 			},
 		},
 		{
@@ -214,18 +219,20 @@ local Item =
 		{
 			Name = "GetItemSpell",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Accepts an item ID, item name or item link. The second return value is the spell rank, not a spell ID. Both results are nil when no use spell is found.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "itemID", Type = "number", Nilable = true },
-				{ Name = "itemName", Type = "string", Nilable = true },
-				{ Name = "itemLink", Type = "string", Nilable = true },
+				{ Name = "item", Type = "ItemInfo", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "rank", Type = "string", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "rank", Type = "string", Nilable = true },
 			},
 		},
 		{

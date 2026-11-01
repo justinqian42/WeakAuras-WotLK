@@ -15,9 +15,6 @@ local MinimapAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the location of the last \"ping\" on the minimap" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -30,9 +27,6 @@ local MinimapAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the minimap's current zoom level" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -44,9 +38,6 @@ local MinimapAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the number of available zoom settings for the minimap" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -179,9 +170,6 @@ local MinimapAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -193,36 +181,12 @@ local MinimapAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "GetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetDontSavePosition",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 	},
 

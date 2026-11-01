@@ -34,16 +34,19 @@ local DebuggingAndProfiling =
 		{
 			Name = "GetAddOnMemoryUsage",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns the cached Lua memory usage attributed to an addon, in KiB. Accepts an addon name or index. Call UpdateAddOnMemoryUsage to refresh the value. Textures and other game assets are excluded.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "name", Type = "string", Nilable = true },
-				{ Name = "index", Type = "luaIndex", Nilable = true },
+				{ Name = "addon", Type = "uiAddon", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "mem", Type = "number", Nilable = false },
+				{ Name = "memory", Type = "number", Nilable = false },
 			},
 		},
 		{
@@ -67,13 +70,13 @@ local DebuggingAndProfiling =
 
 			Arguments =
 			{
-				{ Name = "frame", Type = "frame", Nilable = false },
-				{ Name = "includeChildren", Type = "bool", Nilable = false },
+				{ Name = "frame", Type = "SimpleFrame", Nilable = false },
+				{ Name = "includeChildren", Type = "bool", Nilable = true, Default = true },
 			},
 
 			Returns =
 			{
-				{ Name = "usage", Type = "number", Nilable = false },
+				{ Name = "usage", Type = "number", Nilable = false, --[[ Documentation = { "Milliseconds." } ]] },
 				{ Name = "calls", Type = "number", Nilable = false },
 			},
 		},
@@ -92,26 +95,30 @@ local DebuggingAndProfiling =
 
 			Arguments =
 			{
-				{ Name = "function", Type = "function", Nilable = false },
-				{ Name = "includeSubroutines", Type = "bool", Nilable = false },
+				{ Name = "func", Type = "LuaFunctionReference", Nilable = false },
+				{ Name = "includeSubroutines", Type = "bool", Nilable = true, Default = true },
 			},
 
 			Returns =
 			{
-				{ Name = "usage", Type = "number", Nilable = false },
+				{ Name = "usage", Type = "number", Nilable = false, --[[ Documentation = { "Milliseconds." } ]] },
 				{ Name = "calls", Type = "number", Nilable = false },
 			},
 		},
 		{
 			Name = "GetNetStats",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns incoming bandwidth, outgoing bandwidth and latency. Bandwidth is averaged over the time since the connection started.",
+			}, ]]
+
 
 			Returns =
 			{
-				{ Name = "bandwidthIn", Type = "number", Nilable = false },
-				{ Name = "bandwidthOut", Type = "number", Nilable = false },
-				{ Name = "latencyHome", Type = "number", Nilable = false },
-				{ Name = "latencyWorld", Type = "number", Nilable = false },
+				{ Name = "bandwidthIn", Type = "number", Nilable = false, --[[ Documentation = { "KiB per second." } ]] },
+				{ Name = "bandwidthOut", Type = "number", Nilable = false, --[[ Documentation = { "KiB per second." } ]] },
+				{ Name = "latency", Type = "number", Nilable = false, --[[ Documentation = { "Milliseconds." } ]] },
 			},
 		},
 		{
@@ -155,20 +162,33 @@ local DebuggingAndProfiling =
 		{
 			Name = "UpdateAddOnMemoryUsage",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Refreshes the Lua memory attribution counters read by GetAddOnMemoryUsage.",
+			}, ]]
 
 		},
 		{
 			Name = "debugprofilestart",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Resets the shared profiling start counter. Other addons use the same counter; calls are not independent nested stopwatches.",
+			}, ]]
 
 		},
 		{
 			Name = "debugprofilestop",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Reads elapsed milliseconds from the shared profiling counter. Reading it does not stop or reset the counter. Another call to debugprofilestart changes the baseline.",
+			}, ]]
+
 
 			Returns =
 			{
-				{ Name = "time", Type = "time_t", Nilable = false },
+				{ Name = "elapsed", Type = "number", Nilable = false, --[[ Documentation = { "Milliseconds." } ]] },
 			},
 		},
 		{
@@ -199,17 +219,21 @@ local DebuggingAndProfiling =
 		{
 			Name = "issecurevariable",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Overloads: issecurevariable(variableName) for a global, or issecurevariable(table, variableName).",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "table", Type = "table", Nilable = true },
-				{ Name = "variable", Type = "string", Nilable = false },
+				{ Name = "tableOrVariable", Type = "LuaValueVariant", Nilable = false },
+				{ Name = "variable", Type = "string", Nilable = true },
 			},
 
 			Returns =
 			{
-				{ Name = "issecure", Type = "bool", Nilable = false },
-				{ Name = "taint", Type = "string", Nilable = false },
+				{ Name = "secure", Type = "bool", Nilable = true },
+				{ Name = "taint", Type = "string", Nilable = true },
 			},
 		},
 		{

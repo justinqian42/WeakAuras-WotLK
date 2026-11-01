@@ -138,16 +138,21 @@ local AddonRelated =
 		{
 			Name = "IsAddOnLoaded",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"The first result becomes 1 when loading begins and remains 1 after loading completes; the second becomes 1 when loading completes. Both use 1/nil.",
+				"ADDON_LOADED is sent after the addon files and saved variables have been loaded.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "name", Type = "string", Nilable = true },
-				{ Name = "index", Type = "luaIndex", Nilable = true },
+				{ Name = "addon", Type = "uiAddon", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "loaded", Type = "bool", Nilable = false },
+				{ Name = "loadedOrLoading", Type = "bool", Nilable = true },
+				{ Name = "finished", Type = "bool", Nilable = true },
 			},
 		},
 		{

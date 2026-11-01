@@ -57,8 +57,9 @@ local Actionbar =
 
 			Returns =
 			{
-				{ Name = "texture", Type = "string", Nilable = false },
-				{ Name = "name", Type = "string", Nilable = false },
+				{ Name = "texture", Type = "string", Nilable = true },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "enabled", Type = "bool", Nilable = true },
 			},
 		},
 		{

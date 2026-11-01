@@ -14,9 +14,6 @@ local UIObjectAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the widget object's name" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -28,9 +25,6 @@ local UIObjectAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the object's widget type" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -159,9 +153,6 @@ local ParentedObjectAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the object's parent object" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -198,9 +189,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether protected properties of the region can be changed by non-secure scripts" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -212,9 +200,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Removes all anchor points from the region" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "CreateAnimationGroup",
@@ -237,9 +222,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns a list of animation groups belonging to the region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -251,9 +233,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the distance from the bottom of the screen to the bottom of the region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -265,9 +244,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the screen coordinates of the region's center" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -280,9 +256,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the height of the region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -294,9 +267,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the distance from the left edge of the screen to the left edge of the region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -308,9 +278,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the number of anchor points defined for the region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -341,9 +308,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the position and dimensions of the region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -358,9 +322,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the distance from the left edge of the screen to the right edge of the region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -372,9 +333,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the width and height of the region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -387,9 +345,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the distance from the bottom of the screen to the top of the region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -401,9 +356,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the width of the region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -415,9 +367,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the region is currently being dragged" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -429,9 +378,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the mouse cursor is over the given region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -443,9 +389,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the region is protected" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -525,9 +468,6 @@ local RegionAPI =
 			Type = "Function",
 			-- Documentation = { "Stops any active animations involving the region or its children" },
 
-			Arguments =
-			{
-			},
 		},
 	},
 
@@ -559,9 +499,6 @@ local VisibleRegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the opacity of the region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -573,18 +510,12 @@ local VisibleRegionAPI =
 			Type = "Function",
 			-- Documentation = { "Hides the region" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "IsShown",
 			Type = "Function",
 			-- Documentation = { "Returns whether the region is shown" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -596,9 +527,6 @@ local VisibleRegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the region is visible" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -620,9 +548,6 @@ local VisibleRegionAPI =
 			Type = "Function",
 			-- Documentation = { "Shows the region" },
 
-			Arguments =
-			{
-			},
 		},
 	},
 
@@ -654,9 +579,6 @@ local FontInstanceAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the font instance's basic font properties" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -670,9 +592,6 @@ local FontInstanceAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the `Font` object from which the font instance's properties are inherited" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -684,9 +603,6 @@ local FontInstanceAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the font instance's horizontal text alignment style" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -698,9 +614,6 @@ local FontInstanceAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the font instance's vertical text alignment style" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -712,9 +625,6 @@ local FontInstanceAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the color of the font's text shadow" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -729,9 +639,6 @@ local FontInstanceAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the offset of the font instance's text shadow from its text" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -744,9 +651,6 @@ local FontInstanceAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the font instance's amount of spacing between lines" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -758,9 +662,6 @@ local FontInstanceAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the font instance's default text color" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -813,9 +714,6 @@ local FontInstanceAPI =
 			Type = "Function",
 			-- Documentation = { "Sets the font instance's horizontal text alignment style" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetShadowColor",
@@ -894,9 +792,6 @@ local LayeredRegionAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the layer at which the region's graphics are drawn relative to others in its frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -906,11 +801,14 @@ local LayeredRegionAPI =
 		{
 			Name = "SetDrawLayer",
 			Type = "Function",
-			-- Documentation = { "Sets the layer at which the region's graphics are drawn relative to others in its frame" },
+			--[[ Documentation =
+			{
+				"Sets the draw layer to BACKGROUND, BORDER, ARTWORK, OVERLAY or HIGHLIGHT. Additional arguments are ignored.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "layer", Type = "value", Nilable = false --[[ Documentation = { "String identifying a graphics layer; one of the following values: (string, layer) ARTWORKBACKGROUNDBORDERHIGHLIGHTOVERLAY" }, ]] },
+				{ Name = "layer", Type = "DrawLayer", Nilable = false },
 			},
 		},
 		{

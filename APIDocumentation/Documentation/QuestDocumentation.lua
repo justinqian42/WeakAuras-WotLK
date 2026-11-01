@@ -109,7 +109,8 @@ local Quest =
 
 			Returns =
 			{
-				{ Name = "title", Type = "string", Nilable = false },
+				{ Name = "title", Type = "string", Nilable = true },
+				{ Name = "isComplete", Type = "bool", Nilable = false },
 			},
 		},
 		{
@@ -653,23 +654,28 @@ local Quest =
 		{
 			Name = "GetQuestLogTitle",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Normally returns nine values. A tenth true value is appended when the displayQuestID CVar is enabled.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "questIndex", Type = "luaIndex", Nilable = false },
+				{ Name = "index", Type = "number", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "questLogTitleText", Type = "string", Nilable = false },
+				{ Name = "title", Type = "string", Nilable = true },
 				{ Name = "level", Type = "number", Nilable = false },
-				{ Name = "questTag", Type = "string", Nilable = false },
+				{ Name = "questTag", Type = "string", Nilable = true },
 				{ Name = "suggestedGroup", Type = "number", Nilable = false },
-				{ Name = "isHeader", Type = "bool", Nilable = false },
-				{ Name = "isCollapsed", Type = "bool", Nilable = false },
-				{ Name = "isComplete", Type = "number", Nilable = false },
-				{ Name = "isDaily", Type = "bool", Nilable = false },
+				{ Name = "isHeader", Type = "bool", Nilable = true },
+				{ Name = "isCollapsed", Type = "bool", Nilable = true },
+				{ Name = "isComplete", Type = "number", Nilable = true, --[[ Documentation = { "1 for complete, -1 for failed, otherwise nil." } ]] },
+				{ Name = "isDaily", Type = "bool", Nilable = true },
 				{ Name = "questID", Type = "number", Nilable = false },
+				{ Name = "displayQuestID", Type = "bool", Nilable = true, --[[ Documentation = { "An extra true value is returned only when the displayQuestID CVar is enabled." } ]] },
 			},
 		},
 		{

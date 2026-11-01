@@ -146,6 +146,10 @@ local Merchant =
 		{
 			Name = "GetMerchantItemCostInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns honor cost, arena-point cost and number of additional required item types, in that order.",
+			}, ]]
 
 			Arguments =
 			{
@@ -154,25 +158,30 @@ local Merchant =
 
 			Returns =
 			{
-				{ Name = "currencyCount", Type = "number", Nilable = false },
+				{ Name = "honorPoints", Type = "number", Nilable = false },
+				{ Name = "arenaPoints", Type = "number", Nilable = false },
+				{ Name = "itemCount", Type = "number", Nilable = false },
 			},
 		},
 		{
 			Name = "GetMerchantItemCostItem",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns texture, required quantity and item link. If the record is unavailable, only texture (nil) and quantity are returned. There is no separate item-name return value.",
+			}, ]]
 
 			Arguments =
 			{
 				{ Name = "index", Type = "luaIndex", Nilable = false },
-				{ Name = "currency", Type = "number", Nilable = false },
+				{ Name = "itemIndex", Type = "number", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "texture", Type = "string", Nilable = false },
-				{ Name = "value", Type = "number", Nilable = false },
-				{ Name = "link", Type = "string", Nilable = false },
-				{ Name = "name", Type = "string", Nilable = false },
+				{ Name = "texture", Type = "string", Nilable = true },
+				{ Name = "quantity", Type = "number", Nilable = false },
+				{ Name = "itemLink", Type = "string", Nilable = true },
 			},
 		},
 		{

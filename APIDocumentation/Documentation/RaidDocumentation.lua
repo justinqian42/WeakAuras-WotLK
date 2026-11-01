@@ -91,6 +91,11 @@ local Raid =
 		{
 			Name = "GetRaidRosterInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns information about a raid member at the given one-based index. The final three values indicate the assigned tank, healer and damage roles.",
+				"The tenth return value is the raid assignment MAINTANK/MAINASSIST or nil, separate from the final three group-role flags.",
+			}, ]]
 
 			Arguments =
 			{
@@ -99,17 +104,20 @@ local Raid =
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
 				{ Name = "rank", Type = "number", Nilable = false },
 				{ Name = "subgroup", Type = "number", Nilable = false },
 				{ Name = "level", Type = "number", Nilable = false },
-				{ Name = "class", Type = "string", Nilable = false },
-				{ Name = "fileName", Type = "string", Nilable = false },
-				{ Name = "zone", Type = "string", Nilable = false },
-				{ Name = "online", Type = "bool", Nilable = false },
-				{ Name = "isDead", Type = "bool", Nilable = false },
-				{ Name = "role", Type = "string", Nilable = false },
-				{ Name = "isML", Type = "bool", Nilable = false },
+				{ Name = "class", Type = "string", Nilable = true },
+				{ Name = "fileName", Type = "string", Nilable = true },
+				{ Name = "zone", Type = "string", Nilable = true },
+				{ Name = "online", Type = "bool", Nilable = true },
+				{ Name = "isDead", Type = "bool", Nilable = true },
+				{ Name = "role", Type = "string", Nilable = true },
+				{ Name = "isML", Type = "bool", Nilable = true },
+				{ Name = "isTank", Type = "bool", Nilable = true },
+				{ Name = "isHealer", Type = "bool", Nilable = true },
+				{ Name = "isDamage", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -305,6 +313,10 @@ local Raid =
 		{
 			Name = "UnitInRaid",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns the zero-based raid roster index, or nil when the unit is not in the raid. Add 1 when passing this index to GetRaidRosterInfo.",
+			}, ]]
 
 			Arguments =
 			{
@@ -313,7 +325,7 @@ local Raid =
 
 			Returns =
 			{
-				{ Name = "inRaid", Type = "number", Nilable = false },
+				{ Name = "raidIndex", Type = "number", Nilable = true },
 			},
 		},
 		{

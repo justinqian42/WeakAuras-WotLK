@@ -15,9 +15,6 @@ local ColorSelectAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the hue, saturation and value of the currently selected color" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -31,9 +28,6 @@ local ColorSelectAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the red, green and blue components of the currently selected color" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -47,9 +41,6 @@ local ColorSelectAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the texture for the color picker's value slider background" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -61,9 +52,6 @@ local ColorSelectAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the texture for the color picker's value slider thumb" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -75,9 +63,6 @@ local ColorSelectAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the texture for the color picker's hue/saturation wheel" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -89,9 +74,6 @@ local ColorSelectAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the texture for the selection indicator on the color picker's hue/saturation wheel" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -169,9 +151,6 @@ local ColorSelectAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -183,36 +162,12 @@ local ColorSelectAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "GetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetDontSavePosition",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 	},
 

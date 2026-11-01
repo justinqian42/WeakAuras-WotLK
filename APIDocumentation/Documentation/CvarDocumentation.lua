@@ -9,6 +9,10 @@ local Cvar =
 		{
 			Name = "GetCVar",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns the CVar value as a string, or nil for an unavailable/hidden CVar in the in-game UI. The string \"0\" is truthy in Lua; use GetCVarBool for a flag.",
+			}, ]]
 
 			Arguments =
 			{
@@ -17,7 +21,7 @@ local Cvar =
 
 			Returns =
 			{
-				{ Name = "string", Type = "string", Nilable = false },
+				{ Name = "value", Type = "string", Nilable = true },
 			},
 		},
 		{
@@ -37,6 +41,10 @@ local Cvar =
 		{
 			Name = "GetCVarBool",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns 1 for an enabled flag, or nil when the flag is disabled or the CVar is unavailable or hidden.",
+			}, ]]
 
 			Arguments =
 			{
@@ -45,7 +53,7 @@ local Cvar =
 
 			Returns =
 			{
-				{ Name = "value", Type = "bool", Nilable = false },
+				{ Name = "value", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -73,10 +81,10 @@ local Cvar =
 
 			Returns =
 			{
-				{ Name = "value", Type = "string", Nilable = false },
-				{ Name = "defaultValue", Type = "string", Nilable = false },
-				{ Name = "serverStoredAccountWide", Type = "bool", Nilable = false },
-				{ Name = "serverStoredPerCharacter", Type = "bool", Nilable = false },
+				{ Name = "value", Type = "cstring", Nilable = true },
+				{ Name = "defaultValue", Type = "cstring", Nilable = true },
+				{ Name = "serverStoredAccountWide", Type = "bool", Nilable = true },
+				{ Name = "serverStoredPerCharacter", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -107,14 +115,19 @@ local Cvar =
 		{
 			Name = "SetCVar",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Accepts a string or number as the value. Use 1 or 0 for boolean settings; passing true or false sets the value to \"0\".",
+				"Unknown, hidden or read-only CVars raise an error. Some CVars cannot be changed during combat lockdown.",
+				"If scriptCvar is supplied, CVAR_UPDATE receives that string and the requested string value. The function returns no success result.",
+			}, ]]
 
 			Arguments =
 			{
 				{ Name = "cvar", Type = "string", Nilable = false },
-				{ Name = "value", Type = "any", Nilable = false },
-				{ Name = "raiseEvent", Type = "string", Nilable = true },
+				{ Name = "value", Type = "LuaValueVariant", Nilable = false },
+				{ Name = "scriptCvar", Type = "string", Nilable = true },
 			},
-
 		},
 		{
 			Name = "GetCVarAbsoluteMax",

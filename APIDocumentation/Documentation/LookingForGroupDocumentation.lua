@@ -19,13 +19,18 @@ local LookingForGroup =
 		{
 			Name = "GetLFGRoles",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns the selected LFG roles. Values are nil when the backing role setting is unavailable.",
+			}, ]]
+
 
 			Returns =
 			{
-				{ Name = "leader", Type = "bool", Nilable = false },
-				{ Name = "tank", Type = "bool", Nilable = false },
-				{ Name = "healer", Type = "bool", Nilable = false },
-				{ Name = "damage", Type = "bool", Nilable = false },
+				{ Name = "leader", Type = "bool", Nilable = true },
+				{ Name = "tank", Type = "bool", Nilable = true },
+				{ Name = "healer", Type = "bool", Nilable = true },
+				{ Name = "damage", Type = "bool", Nilable = true },
 			},
 		},
 		{

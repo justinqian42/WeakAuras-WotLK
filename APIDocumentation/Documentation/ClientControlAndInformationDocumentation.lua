@@ -84,13 +84,17 @@ local ClientControlAndInformation =
 		{
 			Name = "GetNetStats",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns incoming bandwidth, outgoing bandwidth and latency. Bandwidth is averaged over the time since the connection started.",
+			}, ]]
+
 
 			Returns =
 			{
-				{ Name = "bandwidthIn", Type = "number", Nilable = false },
-				{ Name = "bandwidthOut", Type = "number", Nilable = false },
-				{ Name = "latencyHome", Type = "number", Nilable = false },
-				{ Name = "latencyWorld", Type = "number", Nilable = false },
+				{ Name = "bandwidthIn", Type = "number", Nilable = false, --[[ Documentation = { "KiB per second." } ]] },
+				{ Name = "bandwidthOut", Type = "number", Nilable = false, --[[ Documentation = { "KiB per second." } ]] },
+				{ Name = "latency", Type = "number", Nilable = false, --[[ Documentation = { "Milliseconds." } ]] },
 			},
 		},
 		{

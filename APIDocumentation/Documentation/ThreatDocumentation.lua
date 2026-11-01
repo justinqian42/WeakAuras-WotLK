@@ -34,37 +34,43 @@ local Threat =
 		{
 			Name = "UnitDetailedThreatSituation",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Accepts two unit references, not separate unit-token and unit-name arguments. Returns no values when the hostile unit or threat data is unavailable. isTanking uses 1/nil.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "unit", Type = "UnitToken", Nilable = true },
-				{ Name = "name", Type = "string", Nilable = true },
-				{ Name = "mobUnit", Type = "UnitToken", Nilable = false },
+				{ Name = "unit", Type = "UnitToken", Nilable = false },
+				{ Name = "mob", Type = "UnitToken", Nilable = false },
 			},
 
 			Returns =
 			{
 				{ Name = "isTanking", Type = "bool", Nilable = true },
-				{ Name = "status", Type = "number", Nilable = false },
-				{ Name = "scaledPercent", Type = "number", Nilable = false },
-				{ Name = "rawPercent", Type = "number", Nilable = false },
-				{ Name = "threatValue", Type = "number", Nilable = false },
+				{ Name = "status", Type = "number", Nilable = true },
+				{ Name = "scaledPercent", Type = "number", Nilable = true },
+				{ Name = "rawPercent", Type = "number", Nilable = true },
+				{ Name = "threatValue", Type = "number", Nilable = true },
 			},
 		},
 		{
 			Name = "UnitThreatSituation",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Accepts a unit and an optional hostile-unit token. Returns no values when threat information is unavailable; absence is different from a reported status of 0.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "unit", Type = "UnitToken", Nilable = true },
-				{ Name = "name", Type = "string", Nilable = true },
-				{ Name = "mobUnit", Type = "UnitToken", Nilable = true },
+				{ Name = "unit", Type = "UnitToken", Nilable = false },
+				{ Name = "mob", Type = "UnitToken", Nilable = true },
 			},
 
 			Returns =
 			{
-				{ Name = "status", Type = "number", Nilable = false },
+				{ Name = "status", Type = "number", Nilable = true },
 			},
 		},
 	},

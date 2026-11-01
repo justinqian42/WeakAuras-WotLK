@@ -160,6 +160,10 @@ local Battlefield =
 		{
 			Name = "GetBattlefieldScore",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns the player battleground score, including killing blows, honorable kills, deaths, honor, faction, race, class, damage done and healing done.",
+			}, ]]
 
 			Arguments =
 			{
@@ -168,22 +172,18 @@ local Battlefield =
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
 				{ Name = "killingBlows", Type = "number", Nilable = false },
 				{ Name = "honorableKills", Type = "number", Nilable = false },
 				{ Name = "deaths", Type = "number", Nilable = false },
 				{ Name = "honorGained", Type = "number", Nilable = false },
 				{ Name = "faction", Type = "number", Nilable = false },
-				{ Name = "race", Type = "string", Nilable = false },
-				{ Name = "class", Type = "string", Nilable = false },
-				{ Name = "classToken", Type = "string", Nilable = false },
+				{ Name = "rank", Type = "number", Nilable = false, --[[ Documentation = { "Always 0." } ]] },
+				{ Name = "race", Type = "string", Nilable = true },
+				{ Name = "class", Type = "string", Nilable = true },
+				{ Name = "classToken", Type = "string", Nilable = true },
 				{ Name = "damageDone", Type = "number", Nilable = false },
 				{ Name = "healingDone", Type = "number", Nilable = false },
-				{ Name = "bgRating", Type = "number", Nilable = false },
-				{ Name = "ratingChange", Type = "number", Nilable = false },
-				{ Name = "preMatchMMR", Type = "number", Nilable = false },
-				{ Name = "mmrChange", Type = "number", Nilable = false },
-				{ Name = "talentSpec", Type = "string", Nilable = false },
 			},
 		},
 		{
@@ -243,14 +243,15 @@ local Battlefield =
 
 			Arguments =
 			{
-				{ Name = "index", Type = "luaIndex", Nilable = false },
+				{ Name = "index", Type = "number", Nilable = false, --[[ Documentation = { "Team index 0 or 1." } ]] },
 			},
 
 			Returns =
 			{
-				{ Name = "teamName", Type = "string", Nilable = false },
-				{ Name = "teamRating", Type = "number", Nilable = false },
-				{ Name = "newTeamRating", Type = "number", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "oldRating", Type = "number", Nilable = false },
+				{ Name = "newRating", Type = "number", Nilable = false },
+				{ Name = "matchmakingRating", Type = "number", Nilable = false },
 			},
 		},
 		{
@@ -308,10 +309,11 @@ local Battlefield =
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "canEnter", Type = "bool", Nilable = false },
-				{ Name = "isHoliday", Type = "bool", Nilable = false },
-				{ Name = "minlevel", Type = "number", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "canEnter", Type = "bool", Nilable = true },
+				{ Name = "isHoliday", Type = "bool", Nilable = true },
+				{ Name = "isRandom", Type = "bool", Nilable = true },
+				{ Name = "battlegroundID", Type = "number", Nilable = true },
 			},
 		},
 		{
@@ -555,6 +557,17 @@ local Battlefield =
 		{
 			Name = "GetBattlefieldInfo",
 			Type = "Function",
+
+
+			Returns =
+			{
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "description", Type = "string", Nilable = true },
+				{ Name = "maxGroupSize", Type = "number", Nilable = true },
+				{ Name = "canEnter", Type = "bool", Nilable = true },
+				{ Name = "isHoliday", Type = "bool", Nilable = true },
+				{ Name = "isRandom", Type = "bool", Nilable = true },
+			},
 		},
 		{
 			Name = "IsBattlefieldArena",

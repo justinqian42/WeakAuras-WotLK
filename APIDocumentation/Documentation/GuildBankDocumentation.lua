@@ -123,20 +123,25 @@ local GuildBank =
 		{
 			Name = "GetGuildBankMoneyTransaction",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns transaction type, player, amount and four age components.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "index", Type = "luaIndex", Nilable = false },
+				{ Name = "index", Type = "luaIndex", Nilable = false, --[[ Documentation = { "One-based transaction index, within the available log entries (maximum 25)." } ]] },
 			},
 
 			Returns =
 			{
 				{ Name = "type", Type = "string", Nilable = false },
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "year", Type = "number", Nilable = false },
-				{ Name = "month", Type = "number", Nilable = false },
-				{ Name = "day", Type = "number", Nilable = false },
-				{ Name = "hour", Type = "number", Nilable = false },
+				{ Name = "playerName", Type = "string", Nilable = true },
+				{ Name = "amount", Type = "number", Nilable = false },
+				{ Name = "years", Type = "number", Nilable = false },
+				{ Name = "months", Type = "number", Nilable = false },
+				{ Name = "days", Type = "number", Nilable = false },
+				{ Name = "hours", Type = "number", Nilable = false },
 			},
 		},
 		{

@@ -11,6 +11,25 @@ local ButtonAPI =
 	Functions =
 	{
 		{
+			Name = "GetMotionScriptsWhileDisabled",
+			Type = "Function",
+
+
+			Returns =
+			{
+				{ Name = "enabled", Type = "bool", Nilable = false },
+			},
+		},
+		{
+			Name = "SetMotionScriptsWhileDisabled",
+			Type = "Function",
+
+			Arguments =
+			{
+				{ Name = "enabled", Type = "bool", Nilable = true, Default = false },
+			},
+		},
+		{
 			Name = "Click",
 			Type = "Function",
 			-- Documentation = { "Simulates a click on the given button" },
@@ -26,27 +45,18 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Disables the button so it cannot be interacted with" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "Enable",
 			Type = "Function",
 			-- Documentation = { "Enables the button to receive scripts resulting from interaction with the user" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetButtonState",
 			Type = "Function",
 			-- Documentation = { "Returns the buton's current state: \"NORMAL\", \"PUSHED\", or \"DISABLED\"." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -58,9 +68,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the Font object used when the button is in the DISABLED state" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -72,9 +79,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the texture object that is displayed when the button is in the DISABLED state" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -86,9 +90,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the FontString object that is used for the button's label." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -100,9 +101,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the font object used for the button's highlight text" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -114,9 +112,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the Texture object that is displayed when the button is highlighted." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -128,9 +123,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -142,9 +134,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the Texture object that is displayed when the button is in its normal state." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -156,9 +145,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the text offset for when the button is in the PUSHED state." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -171,9 +157,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the texture that is displayed when the button is in the PUSHED state" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -185,9 +168,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the text of the button's label" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -199,9 +179,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the height of the button's text" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -213,9 +190,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the width of the button's label" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -227,9 +201,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns if the button is enabled" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -241,9 +212,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Locks the button's highlight state, so it is always drawn as highlighted" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "RegisterForClicks",
@@ -388,9 +356,6 @@ local ButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Unlocks the button's highlight state, so it operates normally" },
 
-			Arguments =
-			{
-			},
 		},
 	},
 

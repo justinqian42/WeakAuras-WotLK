@@ -194,25 +194,27 @@ local Talent =
 		{
 			Name = "GetTalentTabInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns the talent tab name, icon, points spent, background and preview points spent.",
+				"Omitting talentGroup uses the local player active talent group. When inspecting another player, specify the intended group explicitly.",
+			}, ]]
 
 			Arguments =
 			{
 				{ Name = "tabIndex", Type = "luaIndex", Nilable = false },
-				{ Name = "inspect", Type = "bool", Nilable = false },
-				{ Name = "pet", Type = "bool", Nilable = false },
-				{ Name = "talentGroup", Type = "number", Nilable = false },
+				{ Name = "inspect", Type = "bool", Nilable = true, Default = false },
+				{ Name = "pet", Type = "bool", Nilable = true, Default = false },
+				{ Name = "talentGroup", Type = "number", Nilable = true },
 			},
 
 			Returns =
 			{
-				{ Name = "id", Type = "number", Nilable = false },
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "description", Type = "string", Nilable = false },
-				{ Name = "icon", Type = "string", Nilable = false },
-				{ Name = "points", Type = "number", Nilable = false },
-				{ Name = "background", Type = "string", Nilable = false },
-				{ Name = "previewPoints", Type = "number", Nilable = false },
-				{ Name = "isUnlocked", Type = "bool", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "icon", Type = "string", Nilable = true },
+				{ Name = "pointsSpent", Type = "number", Nilable = false },
+				{ Name = "background", Type = "string", Nilable = true },
+				{ Name = "previewPointsSpent", Type = "number", Nilable = false },
 			},
 		},
 		{

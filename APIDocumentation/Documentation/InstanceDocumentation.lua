@@ -19,9 +19,11 @@ local Instance =
 			Name = "GetDungeonDifficulty",
 			Type = "Function",
 
+
 			Returns =
 			{
-				{ Name = "difficulty", Type = "number", Nilable = false },
+				{ Name = "difficulty", Type = "number", Nilable = false, --[[ Documentation = { "Applicable group or local difficulty, one-based." } ]] },
+				{ Name = "playerDifficulty", Type = "number", Nilable = false, --[[ Documentation = { "Local player difficulty, one-based." } ]] },
 			},
 		},
 		{
@@ -61,9 +63,13 @@ local Instance =
 			Name = "GetInstanceLockTimeRemaining",
 			Type = "Function",
 
+
 			Returns =
 			{
-				{ Name = "seconds", Type = "number", Nilable = false },
+				{ Name = "timeLeft", Type = "number", Nilable = false, --[[ Documentation = { "Whole seconds remaining." } ]] },
+				{ Name = "extending", Type = "bool", Nilable = false },
+				{ Name = "encountersTotal", Type = "number", Nilable = false },
+				{ Name = "encountersCompleted", Type = "number", Nilable = false },
 			},
 		},
 		{

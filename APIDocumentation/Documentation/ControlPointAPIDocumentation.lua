@@ -15,9 +15,6 @@ local ControlPointAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the offset for the control point" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -30,9 +27,6 @@ local ControlPointAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the order of the control point in a path animation" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{

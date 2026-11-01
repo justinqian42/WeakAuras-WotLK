@@ -15,9 +15,6 @@ local TextureAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the blend mode of the texture" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -27,24 +24,21 @@ local TextureAPI =
 		{
 			Name = "GetHorizTile",
 			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
+
+			Returns =
 			{
+				{ Name = "horizTile", Type = "bool", Nilable = true },
 			},
 		},
 		{
 			Name = "GetNonBlocking",
 			Type = "Function",
-			-- Documentation = { "Returns whether the texture object loads its image file in the background" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
-				{ Name = "nonBlocking", Type = "1nil", Nilable = false --[[ Documentation = { "1 if the texture object loads its image file in the background; nil if the game engine is halted while the texture loads" }, ]] },
+				{ Name = "nonBlocking", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -52,9 +46,6 @@ local TextureAPI =
 			Type = "Function",
 			-- Documentation = { "Returns corner coordinates for scaling or cropping the texture image" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -71,24 +62,25 @@ local TextureAPI =
 		{
 			Name = "GetTexture",
 			Type = "Function",
-			-- Documentation = { "Returns the path to the texture's image file" },
-
-			Arguments =
+			--[[ Documentation =
 			{
-			},
+				"Returns the texture path or generated-texture name, or nil when there is no image. This is not a numeric file ID.",
+			}, ]]
+
 
 			Returns =
 			{
-				{ Name = "texture", Type = "value", Nilable = false --[[ Documentation = { "Path to the texture image file, or one of the following values: (string) Portrait1 - Texture is set to a generated image (e.g. via SetPortraitTexture())SolidTexture - Texture is set to a solid color instead of an image" }, ]] },
+				{ Name = "texture", Type = "string", Nilable = true },
 			},
 		},
 		{
 			Name = "GetVertTile",
 			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
+
+			Returns =
 			{
+				{ Name = "vertTile", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -96,9 +88,6 @@ local TextureAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the shading color of the texture" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -111,15 +100,11 @@ local TextureAPI =
 		{
 			Name = "IsDesaturated",
 			Type = "Function",
-			-- Documentation = { "Returns whether the texture image should be displayed with zero saturation (i.e. converted to grayscale)" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
-				{ Name = "desaturated", Type = "1nil", Nilable = false --[[ Documentation = { "1 if the texture should be displayed in grayscale; otherwise nil" }, ]] },
+				{ Name = "desaturated", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -135,16 +120,19 @@ local TextureAPI =
 		{
 			Name = "SetDesaturated",
 			Type = "Function",
-			-- Documentation = { "Sets whether the texture image should be displayed with zero saturation (i.e. converted to grayscale)" },
+			--[[ Documentation =
+			{
+				"Returns 1 if the requested image-mode shader is available, otherwise nil. Setting a texture image selects its normal image mode again; reapply desaturation after replacing the image.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "desaturate", Type = "bool", Nilable = false --[[ Documentation = { "True to display the texture in grayscale; false to display original texture colors" }, ]] },
+				{ Name = "desaturate", Type = "bool", Nilable = true, Default = true },
 			},
 
 			Returns =
 			{
-				{ Name = "supported", Type = "1nil", Nilable = false --[[ Documentation = { "1 if the current system supports texture desaturation; otherwise nil" }, ]] },
+				{ Name = "supported", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -184,81 +172,87 @@ local TextureAPI =
 		{
 			Name = "SetHorizTile",
 			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
 
 			Arguments =
 			{
+				{ Name = "horizTile", Type = "bool", Nilable = true, Default = true },
 			},
 		},
 		{
 			Name = "SetNonBlocking",
 			Type = "Function",
-			-- Documentation = { "Sets whether the texture object loads its image file in the background" },
 
 			Arguments =
 			{
-				{ Name = "nonBlocking", Type = "bool", Nilable = false --[[ Documentation = { "True to allow the texture object to load its image file in the background; false (default) to halt the game engine while the texture loads" }, ]] },
+				{ Name = "nonBlocking", Type = "bool", Nilable = true, Default = true },
 			},
 		},
 		{
 			Name = "SetRotation",
 			Type = "Function",
-			-- Documentation = { "Rotates the texture image. This is an efficient shorthand for the more complex Texture:SetTexCoord()." },
+			--[[ Documentation =
+			{
+				"Replaces all four texture coordinates using an angle in radians. This overwrites prior cropping or custom texture coordinates. Both cx and cy must be numeric to override the default center (0.5, 0.5).",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "radians", Type = "number", Nilable = false --[[ Documentation = { "Rotation angle in radians. Positive = counter-clockwise, negative = clockwise." }, ]] },
-				{ Name = "cx", Type = "number", Nilable = true --[[ Documentation = { "Horizontal rotation pivot in texture UV space (0 = left, 1 = right). Defaults to 0.5 (center)." }, ]] },
-				{ Name = "cy", Type = "number", Nilable = true --[[ Documentation = { "Vertical rotation pivot in texture UV space (0 = top, 1 = bottom). Defaults to 0.5 (center)." }, ]] },
+				{ Name = "radians", Type = "number", Nilable = false },
+				{ Name = "cx", Type = "number", Nilable = true },
+				{ Name = "cy", Type = "number", Nilable = true },
 			},
 		},
 		{
 			Name = "SetTexCoord",
 			Type = "Function",
-			-- Documentation = { "Sets corner coordinates for scaling or cropping the texture image" },
+			--[[ Documentation =
+			{
+				"Sets texture coordinates using either four values (left, right, top, bottom) or eight values (ULx, ULy, LLx, LLy, URx, URy, LRx, LRy).",
+				"Each coordinate must be in -10000..10000. Coordinates outside 0..1 are allowed.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "left", Type = "number", Nilable = false --[[ Documentation = { "Left edge of the scaled/cropped image, as a fraction of the image's width from the left" }, ]] },
-				{ Name = "right", Type = "number", Nilable = false --[[ Documentation = { "Right edge of the scaled/cropped image, as a fraction of the image's width from the left" }, ]] },
-				{ Name = "top", Type = "number", Nilable = false --[[ Documentation = { "Top edge of the scaled/cropped image, as a fraction of the image's height from the top" }, ]] },
-				{ Name = "bottom", Type = "number", Nilable = false --[[ Documentation = { "Bottom edge of the scaled/cropped image, as a fraction of the image's height from the top" }, ]] },
-				{ Name = "ULx", Type = "number", Nilable = false --[[ Documentation = { "Upper left corner X position, as a fraction of the image's width from the left" }, ]] },
-				{ Name = "ULy", Type = "number", Nilable = false --[[ Documentation = { "Upper left corner Y position, as a fraction of the image's height from the top" }, ]] },
-				{ Name = "LLx", Type = "number", Nilable = false --[[ Documentation = { "Lower left corner X position, as a fraction of the image's width from the left" }, ]] },
-				{ Name = "LLy", Type = "number", Nilable = false --[[ Documentation = { "Lower left corner Y position, as a fraction of the image's height from the top" }, ]] },
-				{ Name = "URx", Type = "number", Nilable = false --[[ Documentation = { "Upper right corner X position, as a fraction of the image's width from the left" }, ]] },
-				{ Name = "URy", Type = "number", Nilable = false --[[ Documentation = { "Upper right corner Y position, as a fraction of the image's height from the top" }, ]] },
-				{ Name = "LRx", Type = "number", Nilable = false --[[ Documentation = { "Lower right corner X position, as a fraction of the image's width from the left" }, ]] },
-				{ Name = "LRy", Type = "number", Nilable = false --[[ Documentation = { "Lower right corner Y position, as a fraction of the image's height from the top" }, ]] },
+				{ Name = "coordinate1", Type = "number", Nilable = false },
+				{ Name = "coordinate2", Type = "number", Nilable = false },
+				{ Name = "coordinate3", Type = "number", Nilable = false },
+				{ Name = "coordinate4", Type = "number", Nilable = false },
+				{ Name = "coordinate5", Type = "number", Nilable = true },
+				{ Name = "coordinate6", Type = "number", Nilable = true },
+				{ Name = "coordinate7", Type = "number", Nilable = true },
+				{ Name = "coordinate8", Type = "number", Nilable = true },
 			},
 		},
 		{
 			Name = "SetTexture",
 			Type = "Function",
-			-- Documentation = { "Sets the texture object's image or color" },
+			--[[ Documentation =
+			{
+				"Overloads: SetTexture(path [, wrap]), SetTexture(red, green, blue [, alpha]), or SetTexture(nil) to clear the image.",
+				"A numeric first argument selects a solid color; it is not a file ID, spell ID or atlas ID. Color components are clamped to 0..1; alpha defaults to 1.",
+				"The path overload reads one boolean wrap argument for both axes; separate wrap arguments are not supported. Returns 1 after setting or clearing the texture, or nil when loading the path fails.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "texture", Type = "string", Nilable = false --[[ Documentation = { "Path to a texture image" }, ]] },
-				{ Name = "red", Type = "number", Nilable = false --[[ Documentation = { "Red component of the color (0.0 - 1.0)" }, ]] },
-				{ Name = "green", Type = "number", Nilable = false --[[ Documentation = { "Green component of the color (0.0 - 1.0)" }, ]] },
-				{ Name = "blue", Type = "number", Nilable = false --[[ Documentation = { "Blue component of the color (0.0 - 1.0)" }, ]] },
-				{ Name = "alpha", Type = "number", Nilable = false --[[ Documentation = { "Alpha (opacity) for the color (0.0 = fully transparent, 1.0 = fully opaque)" }, ]] },
+				{ Name = "textureOrRed", Type = "LuaValueVariant", Nilable = true },
+				{ Name = "wrapOrGreen", Type = "LuaValueVariant", Nilable = true },
+				{ Name = "blue", Type = "number", Nilable = true },
+				{ Name = "alpha", Type = "number", Nilable = true },
 			},
 
 			Returns =
 			{
-				{ Name = "visible", Type = "1nil", Nilable = false --[[ Documentation = { "1 if the texture was successfully changed; otherwise nil" }, ]] },
+				{ Name = "success", Type = "bool", Nilable = true },
 			},
 		},
 		{
 			Name = "SetVertTile",
 			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
 
 			Arguments =
 			{
+				{ Name = "vertTile", Type = "bool", Nilable = true, Default = true },
 			},
 		},
 	},

@@ -16,9 +16,6 @@ local FontStringAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether long lines of text will wrap within or between words" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -30,9 +27,6 @@ local FontStringAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether long lines of text in the font string can wrap onto subsequent lines" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -44,27 +38,18 @@ local FontStringAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetIndentedWordWrap",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetStringHeight",
 			Type = "Function",
 			-- Documentation = { "Returns the height of the text displayed in the font string" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -76,9 +61,6 @@ local FontStringAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the width of the text displayed in the font string" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -90,9 +72,6 @@ local FontStringAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the text currently set for display in the font string" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -126,9 +105,6 @@ local FontStringAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetNonSpaceWrap",
@@ -145,9 +121,6 @@ local FontStringAPI =
 			Type = "Function",
 			-- Documentation = { "Sets the text to be displayed in the font string" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetTextHeight",

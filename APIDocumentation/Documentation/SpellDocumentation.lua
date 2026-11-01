@@ -74,18 +74,20 @@ local Spell =
 		{
 			Name = "GetItemSpell",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Accepts an item ID, item name or item link. The second return value is the spell rank, not a spell ID. Both results are nil when no use spell is found.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "itemID", Type = "number", Nilable = true },
-				{ Name = "itemName", Type = "string", Nilable = true },
-				{ Name = "itemLink", Type = "string", Nilable = true },
+				{ Name = "item", Type = "ItemInfo", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "rank", Type = "string", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "rank", Type = "string", Nilable = true },
 			},
 		},
 		{
@@ -154,20 +156,24 @@ local Spell =
 		{
 			Name = "GetSpellCooldown",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"GetSpellCooldown(spellID) or GetSpellCooldown(spellName [, rank]) or GetSpellCooldown(spellBookIndex, bookType). bookType is \"spell\" or \"pet\".",
+				"The direct spell-ID path requires exactly one argument; passing an additional nil argument does not select that path.",
+				"Start and duration are seconds on the GetTime() time base. enabled is numeric (0 or 1), not a Lua boolean. No modRate is returned.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "index", Type = "luaIndex", Nilable = true },
-				{ Name = "bookType", Type = "string", Nilable = true },
-				{ Name = "name", Type = "string", Nilable = true },
-				{ Name = "id", Type = "number", Nilable = true },
+				{ Name = "spell", Type = "SpellIdentifier", Nilable = false },
+				{ Name = "bookTypeOrRank", Type = "string", Nilable = true },
 			},
 
 			Returns =
 			{
-				{ Name = "start", Type = "number", Nilable = false },
-				{ Name = "duration", Type = "time_t", Nilable = false },
-				{ Name = "enable", Type = "number", Nilable = false },
+				{ Name = "start", Type = "number", Nilable = true },
+				{ Name = "duration", Type = "number", Nilable = true },
+				{ Name = "enabled", Type = "number", Nilable = true },
 			},
 		},
 		{
@@ -189,26 +195,31 @@ local Spell =
 		{
 			Name = "GetSpellInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"GetSpellInfo(spellID) or GetSpellInfo(spellName [, rank]) or GetSpellInfo(spellBookIndex, bookType). bookType is \"spell\" or \"pet\".",
+				"The direct spell-ID path requires exactly one argument; passing an additional nil argument does not select that path.",
+				"Returns no values for an unresolved spell. Cost, cast time and range can depend on the current caster.",
+				"The seventh return value is cast time in milliseconds. Range values can be absent when the player or caster is unavailable.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "index", Type = "luaIndex", Nilable = true },
-				{ Name = "bookType", Type = "string", Nilable = true },
-				{ Name = "name", Type = "string", Nilable = true },
-				{ Name = "id", Type = "number", Nilable = true },
+				{ Name = "spell", Type = "SpellIdentifier", Nilable = false },
+				{ Name = "bookTypeOrRank", Type = "string", Nilable = true },
 			},
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "rank", Type = "string", Nilable = false },
-				{ Name = "icon", Type = "string", Nilable = false },
-				{ Name = "powerCost", Type = "number", Nilable = false },
-				{ Name = "isFunnel", Type = "bool", Nilable = false },
-				{ Name = "powerType", Type = "number", Nilable = false },
-				{ Name = "castingTime", Type = "time_t", Nilable = false },
-				{ Name = "minRange", Type = "number", Nilable = false },
-				{ Name = "maxRange", Type = "number", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "rank", Type = "string", Nilable = true },
+				{ Name = "icon", Type = "string", Nilable = true },
+				{ Name = "powerCost", Type = "number", Nilable = true },
+				{ Name = "isFunnel", Type = "bool", Nilable = true },
+				{ Name = "powerType", Type = "number", Nilable = true },
+				{ Name = "castingTime", Type = "number", Nilable = true, --[[ Documentation = { "Milliseconds." } ]] },
+				{ Name = "minRange", Type = "number", Nilable = true },
+				{ Name = "maxRange", Type = "number", Nilable = true },
 			},
 		},
 		{
@@ -248,6 +259,11 @@ local Spell =
 		{
 			Name = "GetSpellTabInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns the tab name, texture, spellbook offset, spell count and two additional numeric values.",
+				"The last two values contain an additional offset and count. Their purpose is not yet documented.",
+			}, ]]
 
 			Arguments =
 			{
@@ -256,10 +272,12 @@ local Spell =
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "texture", Type = "string", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "texture", Type = "string", Nilable = true },
 				{ Name = "offset", Type = "number", Nilable = false },
 				{ Name = "numSpells", Type = "number", Nilable = false },
+				{ Name = "additionalOffset", Type = "number", Nilable = false },
+				{ Name = "additionalCount", Type = "number", Nilable = false },
 			},
 		},
 		{
@@ -401,18 +419,22 @@ local Spell =
 		{
 			Name = "IsSpellInRange",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Overloads: IsSpellInRange(spellName, unit), IsSpellInRange(spellName, rank, unit), or IsSpellInRange(spellBookIndex, bookType, unit). There is no direct spell-ID overload.",
+				"Returns 1 for in range, 0 for out of range, or nil/no values when the spell, unit or range test cannot be resolved. In Lua, 0 is truthy: compare with 1 explicitly.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "index", Type = "luaIndex", Nilable = true },
-				{ Name = "bookType", Type = "string", Nilable = true },
-				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "spellNameOrIndex", Type = "LuaValueVariant", Nilable = false },
+				{ Name = "unitRankOrBookType", Type = "string", Nilable = false },
 				{ Name = "unit", Type = "UnitToken", Nilable = true },
 			},
 
 			Returns =
 			{
-				{ Name = "inRange", Type = "bool", Nilable = false },
+				{ Name = "inRange", Type = "number", Nilable = true },
 			},
 		},
 		{
@@ -433,18 +455,22 @@ local Spell =
 		{
 			Name = "IsUsableSpell",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Accepts a known spell name (optionally rank) or a spellbook index with bookType. There is no direct spell-ID overload.",
+				"Returns no values if spell lookup fails. Both results use 1/nil, not Lua booleans. The first result does not establish that a selected target is in range.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "index", Type = "luaIndex", Nilable = true },
-				{ Name = "bookType", Type = "string", Nilable = true },
-				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "spellNameOrIndex", Type = "LuaValueVariant", Nilable = false },
+				{ Name = "rankOrBookType", Type = "string", Nilable = true },
 			},
 
 			Returns =
 			{
-				{ Name = "isUsable", Type = "bool", Nilable = false },
-				{ Name = "notEnoughMana", Type = "bool", Nilable = false },
+				{ Name = "usable", Type = "bool", Nilable = true },
+				{ Name = "noMana", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -579,6 +605,11 @@ local Spell =
 		{
 			Name = "UnitCastingInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns no values if the unit is unavailable or is not currently casting.",
+				"Start and end times are milliseconds on the GetTime() time base. The rank is the second return value; startTime is fifth and endTime is sixth. No spell ID is returned.",
+			}, ]]
 
 			Arguments =
 			{
@@ -587,20 +618,25 @@ local Spell =
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "subText", Type = "string", Nilable = false },
-				{ Name = "text", Type = "string", Nilable = false },
-				{ Name = "texture", Type = "string", Nilable = false },
-				{ Name = "startTime", Type = "time_t", Nilable = false },
-				{ Name = "endTime", Type = "time_t", Nilable = false },
-				{ Name = "isTradeSkill", Type = "bool", Nilable = false },
-				{ Name = "castID", Type = "number", Nilable = false },
-				{ Name = "notInterruptible", Type = "bool", Nilable = false },
+				{ Name = "name", Type = "cstring", Nilable = true },
+				{ Name = "subText", Type = "string", Nilable = true },
+				{ Name = "text", Type = "string", Nilable = true },
+				{ Name = "texture", Type = "string", Nilable = true },
+				{ Name = "startTime", Type = "number", Nilable = true, --[[ Documentation = { "Milliseconds." } ]] },
+				{ Name = "endTime", Type = "number", Nilable = true, --[[ Documentation = { "Milliseconds." } ]] },
+				{ Name = "isTradeSkill", Type = "bool", Nilable = true },
+				{ Name = "castID", Type = "number", Nilable = true, --[[ Documentation = { "Cast counter; not a spell ID." } ]] },
+				{ Name = "notInterruptible", Type = "bool", Nilable = true },
 			},
 		},
 		{
 			Name = "UnitChannelInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns no values if the unit is unavailable or is not currently channeling.",
+				"Start and end times are milliseconds on the GetTime() time base. The rank is the second return value; startTime is fifth and endTime is sixth. No spell ID is returned.",
+			}, ]]
 
 			Arguments =
 			{
@@ -609,14 +645,14 @@ local Spell =
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "subText", Type = "string", Nilable = false },
-				{ Name = "text", Type = "string", Nilable = false },
-				{ Name = "texture", Type = "string", Nilable = false },
-				{ Name = "startTime", Type = "time_t", Nilable = false },
-				{ Name = "endTime", Type = "time_t", Nilable = false },
-				{ Name = "isTradeSkill", Type = "bool", Nilable = false },
-				{ Name = "notInterruptible", Type = "bool", Nilable = false },
+				{ Name = "name", Type = "cstring", Nilable = true },
+				{ Name = "subText", Type = "string", Nilable = true },
+				{ Name = "text", Type = "string", Nilable = true },
+				{ Name = "texture", Type = "string", Nilable = true },
+				{ Name = "startTime", Type = "number", Nilable = true, --[[ Documentation = { "Milliseconds." } ]] },
+				{ Name = "endTime", Type = "number", Nilable = true, --[[ Documentation = { "Milliseconds." } ]] },
+				{ Name = "isTradeSkill", Type = "bool", Nilable = true },
+				{ Name = "notInterruptible", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -680,48 +716,68 @@ local Spell =
 			Name = "UnitSpellcastDelayed",
 			Type = "Event",
 			LiteralName = "UNIT_SPELLCAST_DELAYED",
+			--[[ Documentation =
+			{
+				"Fires with the unit, spell name, rank and cast counter. The cast counter identifies the cast and can wrap around.",
+			}, ]]
+
 			Payload =
 			{
 				{ Name = "unitID", Type = "UnitToken", Nilable = false },
 				{ Name = "spell", Type = "string", Nilable = false },
 				{ Name = "rank", Type = "string", Nilable = false },
+				{ Name = "castID", Type = "number", Nilable = false },
 			},
 		},
 		{
 			Name = "UnitSpellcastFailed",
 			Type = "Event",
 			LiteralName = "UNIT_SPELLCAST_FAILED",
+			--[[ Documentation =
+			{
+				"Fires with the unit, spell name, rank and cast counter. The cast counter identifies the cast and can wrap around.",
+			}, ]]
+
 			Payload =
 			{
 				{ Name = "unitID", Type = "UnitToken", Nilable = false },
 				{ Name = "spell", Type = "string", Nilable = false },
 				{ Name = "rank", Type = "string", Nilable = false },
-				{ Name = "unknownid", Type = "number", Nilable = false },
-				{ Name = "spellid", Type = "blizzid", Nilable = false },
+				{ Name = "castID", Type = "number", Nilable = false },
 			},
 		},
 		{
 			Name = "UnitSpellcastFailedQuiet",
 			Type = "Event",
 			LiteralName = "UNIT_SPELLCAST_FAILED_QUIET",
+			--[[ Documentation =
+			{
+				"Fires with the unit, spell name, rank and cast counter. The cast counter identifies the cast and can wrap around.",
+			}, ]]
+
 			Payload =
 			{
 				{ Name = "unitID", Type = "UnitToken", Nilable = false },
 				{ Name = "spell", Type = "string", Nilable = false },
 				{ Name = "rank", Type = "string", Nilable = false },
+				{ Name = "castID", Type = "number", Nilable = false },
 			},
 		},
 		{
 			Name = "UnitSpellcastInterrupted",
 			Type = "Event",
 			LiteralName = "UNIT_SPELLCAST_INTERRUPTED",
+			--[[ Documentation =
+			{
+				"Fires with the unit, spell name, rank and cast counter. The cast counter identifies the cast and can wrap around.",
+			}, ]]
+
 			Payload =
 			{
 				{ Name = "unitID", Type = "UnitToken", Nilable = false },
 				{ Name = "spell", Type = "string", Nilable = false },
 				{ Name = "rank", Type = "string", Nilable = false },
-				{ Name = "lineID", Type = "number", Nilable = false },
-				{ Name = "spellID", Type = "spellID", Nilable = false },
+				{ Name = "castID", Type = "number", Nilable = false },
 			},
 		},
 		{
@@ -746,52 +802,68 @@ local Spell =
 			Name = "UnitSpellcastSent",
 			Type = "Event",
 			LiteralName = "UNIT_SPELLCAST_SENT",
+			--[[ Documentation =
+			{
+				"Fires with the unit, spell name, rank and target name when a spellcast is sent.",
+			}, ]]
+
 			Payload =
 			{
-				{ Name = "unitID", Type = "UnitToken", Nilable = false },
+				{ Name = "unitID", Type = "UnitToken", Nilable = false, --[[ Documentation = { "player" } ]] },
 				{ Name = "spell", Type = "string", Nilable = false },
 				{ Name = "rank", Type = "string", Nilable = false },
-				{ Name = "target", Type = "string", Nilable = false },
-				{ Name = "lineID", Type = "number", Nilable = false },
+				{ Name = "target", Type = "cstring", Nilable = false, --[[ Documentation = { "Target name, or an empty string when no object target is present." } ]] },
 			},
 		},
 		{
 			Name = "UnitSpellcastStart",
 			Type = "Event",
 			LiteralName = "UNIT_SPELLCAST_START",
+			--[[ Documentation =
+			{
+				"Fires with the unit, spell name, rank and cast counter. The cast counter identifies the cast and can wrap around.",
+			}, ]]
+
 			Payload =
 			{
 				{ Name = "unitID", Type = "UnitToken", Nilable = false },
 				{ Name = "spell", Type = "string", Nilable = false },
 				{ Name = "rank", Type = "string", Nilable = false },
-				{ Name = "lineID", Type = "number", Nilable = false },
-				{ Name = "spellID", Type = "spellID", Nilable = false },
+				{ Name = "castID", Type = "number", Nilable = false },
 			},
 		},
 		{
 			Name = "UnitSpellcastStop",
 			Type = "Event",
 			LiteralName = "UNIT_SPELLCAST_STOP",
+			--[[ Documentation =
+			{
+				"Fires with the unit, spell name, rank and cast counter. The cast counter identifies the cast and can wrap around.",
+			}, ]]
+
 			Payload =
 			{
 				{ Name = "unitID", Type = "UnitToken", Nilable = false },
 				{ Name = "spell", Type = "string", Nilable = false },
 				{ Name = "rank", Type = "string", Nilable = false },
-				{ Name = "lineID", Type = "number", Nilable = false },
-				{ Name = "spellID", Type = "spellID", Nilable = false },
+				{ Name = "castID", Type = "number", Nilable = false },
 			},
 		},
 		{
 			Name = "UnitSpellcastSucceeded",
 			Type = "Event",
 			LiteralName = "UNIT_SPELLCAST_SUCCEEDED",
+			--[[ Documentation =
+			{
+				"Fires with the unit, spell name, rank and cast counter. The cast counter identifies the cast and can wrap around.",
+			}, ]]
+
 			Payload =
 			{
 				{ Name = "unitID", Type = "UnitToken", Nilable = false },
 				{ Name = "spell", Type = "string", Nilable = false },
 				{ Name = "rank", Type = "string", Nilable = false },
-				{ Name = "?", Type = "number", Nilable = false },
-				{ Name = "spellID", Type = "number", Nilable = false },
+				{ Name = "castID", Type = "number", Nilable = false },
 			},
 		},
 		{

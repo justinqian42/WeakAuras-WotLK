@@ -95,9 +95,11 @@ local Social =
 			Name = "GetNumFriends",
 			Type = "Function",
 
+
 			Returns =
 			{
-				{ Name = "numFriends", Type = "number", Nilable = false },
+				{ Name = "total", Type = "number", Nilable = false },
+				{ Name = "online", Type = "number", Nilable = false },
 			},
 		},
 		{

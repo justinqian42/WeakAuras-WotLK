@@ -15,27 +15,18 @@ local SliderAPI =
 			Type = "Function",
 			-- Documentation = { "Disallows user interaction with the slider" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "Enable",
 			Type = "Function",
 			-- Documentation = { "Allows user interaction with the slider" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetMinMaxValues",
 			Type = "Function",
 			-- Documentation = { "Returns the minimum and maximum values for the slider" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -48,9 +39,6 @@ local SliderAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the orientation of the slider" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -62,9 +50,6 @@ local SliderAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the texture for the slider thumb" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -76,9 +61,6 @@ local SliderAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the value representing the current position of the slider thumb" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -90,9 +72,6 @@ local SliderAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the minimum increment between allowed slider values" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -104,9 +83,6 @@ local SliderAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether user interaction with the slider is allowed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -171,9 +147,6 @@ local SliderAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -185,36 +158,12 @@ local SliderAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "GetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetDontSavePosition",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 	},
 

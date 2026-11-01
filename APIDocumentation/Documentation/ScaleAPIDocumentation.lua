@@ -15,9 +15,6 @@ local ScaleAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the scale animation's origin point" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -31,9 +28,6 @@ local ScaleAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the animation's scaling factors" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{

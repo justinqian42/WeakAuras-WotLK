@@ -41,18 +41,12 @@ local MovieFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Stops the movie currently playing in the frame" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "CanChangeAttribute",
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -64,36 +58,12 @@ local MovieFrameAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "GetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetDontSavePosition",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 	},
 

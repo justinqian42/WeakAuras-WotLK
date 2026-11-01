@@ -29,6 +29,11 @@ local Map =
 		{
 			Name = "GetCurrentMapAreaID",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns the area ID selected in the shared world-map state. This is not necessarily the player current zone when the map selection has changed.",
+			}, ]]
+
 
 			Returns =
 			{
@@ -194,6 +199,11 @@ local Map =
 		{
 			Name = "GetPlayerMapPosition",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns normalized map coordinates for the player or a party/raid member using the selected world map. Unsupported or unresolved positions fall back to 0, 0.",
+				"The values are map coordinates, not world-space distances in yards. Map selection is shared UI state.",
+			}, ]]
 
 			Arguments =
 			{
@@ -202,8 +212,8 @@ local Map =
 
 			Returns =
 			{
-				{ Name = "unitX", Type = "UnitToken", Nilable = false },
-				{ Name = "unitY", Type = "UnitToken", Nilable = false },
+				{ Name = "unitX", Type = "number", Nilable = false },
+				{ Name = "unitY", Type = "number", Nilable = false },
 			},
 		},
 		{

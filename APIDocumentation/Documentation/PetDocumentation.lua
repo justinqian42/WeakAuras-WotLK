@@ -352,6 +352,13 @@ local Pet =
 		{
 			Name = "GetPetHappiness",
 			Type = "Function",
+
+
+			Returns =
+			{
+				{ Name = "happiness", Type = "number", Nilable = true, --[[ Documentation = { "1, 2 or 3; nil when no applicable pet exists." } ]] },
+				{ Name = "damagePercentage", Type = "number", Nilable = false, --[[ Documentation = { "100 when no applicable pet exists." } ]] },
+			},
 		},
 	},
 

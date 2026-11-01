@@ -794,37 +794,51 @@ local Channel =
 			Name = "UnitSpellcastChannelStart",
 			Type = "Event",
 			LiteralName = "UNIT_SPELLCAST_CHANNEL_START",
+			--[[ Documentation =
+			{
+				"Fires with the unit, spell name, rank and cast counter. The cast counter identifies the cast and can wrap around.",
+			}, ]]
+
 			Payload =
 			{
 				{ Name = "unitID", Type = "UnitToken", Nilable = false },
 				{ Name = "spell", Type = "string", Nilable = false },
 				{ Name = "rank", Type = "string", Nilable = false },
-				{ Name = "lineID", Type = "number", Nilable = false },
-				{ Name = "spellID", Type = "spellID", Nilable = false },
+				{ Name = "castID", Type = "number", Nilable = false, --[[ Documentation = { "Always 0 for channel events." } ]] },
 			},
 		},
 		{
 			Name = "UnitSpellcastChannelStop",
 			Type = "Event",
 			LiteralName = "UNIT_SPELLCAST_CHANNEL_STOP",
+			--[[ Documentation =
+			{
+				"Fires with the unit, spell name, rank and cast counter. The cast counter identifies the cast and can wrap around.",
+			}, ]]
+
 			Payload =
 			{
 				{ Name = "unitID", Type = "UnitToken", Nilable = false },
 				{ Name = "spell", Type = "string", Nilable = false },
 				{ Name = "rank", Type = "string", Nilable = false },
+				{ Name = "castID", Type = "number", Nilable = false, --[[ Documentation = { "Always 0 for channel events." } ]] },
 			},
 		},
 		{
 			Name = "UnitSpellcastChannelUpdate",
 			Type = "Event",
 			LiteralName = "UNIT_SPELLCAST_CHANNEL_UPDATE",
+			--[[ Documentation =
+			{
+				"Fires with the unit, spell name, rank and cast counter. The cast counter identifies the cast and can wrap around.",
+			}, ]]
+
 			Payload =
 			{
 				{ Name = "unitID", Type = "UnitToken", Nilable = false },
 				{ Name = "spell", Type = "string", Nilable = false },
 				{ Name = "rank", Type = "string", Nilable = false },
-				{ Name = "lineID", Type = "number", Nilable = false },
-				{ Name = "spellID", Type = "spellID", Nilable = false },
+				{ Name = "castID", Type = "number", Nilable = false, --[[ Documentation = { "Always 0 for channel events." } ]] },
 			},
 		},
 		{

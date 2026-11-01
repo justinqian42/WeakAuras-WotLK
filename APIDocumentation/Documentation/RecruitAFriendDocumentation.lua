@@ -49,10 +49,12 @@ local RecruitAFriend =
 			Name = "GetSummonFriendCooldown",
 			Type = "Function",
 
+
 			Returns =
 			{
-				{ Name = "start", Type = "number", Nilable = false },
-				{ Name = "duration", Type = "time_t", Nilable = false },
+				{ Name = "start", Type = "number", Nilable = false, --[[ Documentation = { "Seconds on the GetTime() time base." } ]] },
+				{ Name = "duration", Type = "number", Nilable = false, --[[ Documentation = { "Seconds." } ]] },
+				{ Name = "enabled", Type = "number", Nilable = false },
 			},
 		},
 		{

@@ -13,12 +13,12 @@ local Inspect =
 			Arguments =
 			{
 				{ Name = "unit", Type = "UnitToken", Nilable = false },
-				{ Name = "showError", Type = "bool", Nilable = false },
+				{ Name = "showError", Type = "bool", Nilable = true, Default = false },
 			},
 
 			Returns =
 			{
-				{ Name = "canInspect", Type = "bool", Nilable = false },
+				{ Name = "canInspect", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -83,12 +83,16 @@ local Inspect =
 		{
 			Name = "NotifyInspect",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Requests inspection data and sets the shared inspect target when the unit can be inspected. Data is asynchronous; another request can replace that target.",
+				"INSPECT_TALENT_READY is emitted only for a response matching the current inspect target, so not every request necessarily produces a ready event.",
+			}, ]]
 
 			Arguments =
 			{
 				{ Name = "unit", Type = "UnitToken", Nilable = false },
 			},
-
 		},
 		{
 			Name = "RequestInspectHonorData",
@@ -108,6 +112,10 @@ local Inspect =
 			Name = "InspectTalentReady",
 			Type = "Event",
 			LiteralName = "INSPECT_TALENT_READY",
+			--[[ Documentation =
+			{
+				"Fires without arguments when talent data arrives for the current inspect target. Responses for a different inspect target are discarded.",
+			}, ]]
 		},
 	},
 

@@ -12,6 +12,44 @@ local EditBoxAPI =
 	Functions =
 	{
 		{
+			Name = "SetCountInvisibleLetters",
+			Type = "Function",
+
+			Arguments =
+			{
+				{ Name = "countInvisible", Type = "bool", Nilable = true, Default = true },
+			},
+		},
+		{
+			Name = "IsCountInvisibleLetters",
+			Type = "Function",
+
+
+			Returns =
+			{
+				{ Name = "countInvisible", Type = "bool", Nilable = true },
+			},
+		},
+		{
+			Name = "ClearHistory",
+			Type = "Function",
+
+		},
+		{
+			Name = "GetUTF8CursorPosition",
+			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns the number of UTF-8 characters before the cursor, starting at zero. This differs from a byte offset for multibyte text.",
+			}, ]]
+
+
+			Returns =
+			{
+				{ Name = "position", Type = "number", Nilable = false },
+			},
+		},
+		{
 			Name = "AddHistoryLine",
 			Type = "Function",
 			-- Documentation = { "Adds a line of text to an edit box's history." },
@@ -26,18 +64,12 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Clears the input focus from an edit box." },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetAltArrowKeyMode",
 			Type = "Function",
 			-- Documentation = { "Returns the arrow key mode state." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -49,9 +81,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the cursor's blink speed." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -63,9 +92,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the current cursor position inside a given edit box." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -77,9 +103,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the max number of history lines." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -91,9 +114,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -105,9 +125,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the current input language charset selected." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -119,9 +136,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the maximum number of bytes allowed in the edit box." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -133,9 +147,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the maximum number of letters you can enter into an EditBox." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -147,9 +158,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the number of letters in the editbox." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -161,9 +169,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the contents of the editbox converted to a number." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -175,9 +180,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Retreives the text stored in the EditBox." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -189,9 +191,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the distance between the edges of the EditBox and the text inside it." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -206,9 +205,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the EditBox has the keyboard cursor focus." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -241,9 +237,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns true if the EditBox will automatically grab keyboard focus when it is shown." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -255,9 +248,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the EditBox is in IME composition mode." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -269,9 +259,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the EditBox uses more than one line of text." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -283,9 +270,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the EditBox is in numeric mode. See SetNumeric." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -297,9 +281,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the EditBox is in password mode." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -351,9 +332,6 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Gives the EditBox keyboard cursor focus." },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetHistoryLines",
@@ -410,18 +388,12 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Set the contents of the editbox to the specified number." },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetNumeric",
 			Type = "Function",
 			-- Documentation = { "Sets whether the edit box should only accept numbers." },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetPassword",
@@ -438,27 +410,18 @@ local EditBoxAPI =
 			Type = "Function",
 			-- Documentation = { "Sets the contents of the EditBox to text. This fires the OnTextChanged handler." },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetTextInsets",
 			Type = "Function",
 			-- Documentation = { "Sets the padding between the edges of the edit box and its text." },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "ToggleInputLanguage",
 			Type = "Function",
 			-- Documentation = { "Toggles the input language for the EditBox." },
 
-			Arguments =
-			{
-			},
 		},
 	},
 

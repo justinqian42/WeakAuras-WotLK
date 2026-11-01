@@ -47,18 +47,23 @@ local Achievement =
 		{
 			Name = "GetAchievementComparisonInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns no values when comparison data or the completed achievement is unavailable. The fifth result contains the achievement flags.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "id", Type = "number", Nilable = false },
+				{ Name = "achievementID", Type = "number", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "completed", Type = "bool", Nilable = false },
-				{ Name = "month", Type = "number", Nilable = false },
-				{ Name = "day", Type = "number", Nilable = false },
-				{ Name = "year", Type = "number", Nilable = false },
+				{ Name = "completed", Type = "bool", Nilable = true },
+				{ Name = "month", Type = "number", Nilable = true },
+				{ Name = "day", Type = "number", Nilable = true },
+				{ Name = "year", Type = "number", Nilable = true },
+				{ Name = "flags", Type = "number", Nilable = true },
 			},
 		},
 		{

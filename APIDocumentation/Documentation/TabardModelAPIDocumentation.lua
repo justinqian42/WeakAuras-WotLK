@@ -15,9 +15,6 @@ local TabardModelAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the tabard model's current design can be saved as the player's guild tabard" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -100,18 +97,12 @@ local TabardModelAPI =
 			Type = "Function",
 			-- Documentation = { "Sets the tabard model's design to match the player's guild tabard" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "Save",
 			Type = "Function",
 			-- Documentation = { "Saves the current tabard model design as the player's guild tabard" },
 
-			Arguments =
-			{
-			},
 		},
 	},
 

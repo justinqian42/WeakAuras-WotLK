@@ -46,19 +46,30 @@ local Loot =
 		{
 			Name = "GetLootRollItemInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns twelve values, or no values if the pending roll or item-cache record is unavailable.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "id", Type = "number", Nilable = false },
+				{ Name = "rollID", Type = "number", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "texture", Type = "string", Nilable = false },
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "count", Type = "number", Nilable = false },
-				{ Name = "quality", Type = "itemQuality", Nilable = false },
-				{ Name = "bindOnPickUp", Type = "bool", Nilable = false },
+				{ Name = "texture", Type = "string", Nilable = true },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "count", Type = "number", Nilable = true },
+				{ Name = "quality", Type = "ItemQuality", Nilable = true },
+				{ Name = "bindOnPickUp", Type = "bool", Nilable = true },
+				{ Name = "canNeed", Type = "bool", Nilable = true },
+				{ Name = "canGreed", Type = "bool", Nilable = true },
+				{ Name = "canDisenchant", Type = "bool", Nilable = true },
+				{ Name = "reasonNeed", Type = "number", Nilable = true },
+				{ Name = "reasonGreed", Type = "number", Nilable = true },
+				{ Name = "reasonDisenchant", Type = "number", Nilable = true },
+				{ Name = "requiredDisenchantSkill", Type = "number", Nilable = true },
 			},
 		},
 		{

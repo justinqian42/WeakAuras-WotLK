@@ -30,9 +30,6 @@ local MessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -44,18 +41,12 @@ local MessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Removes all messages displayed in the frame" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetFadeDuration",
 			Type = "Function",
 			-- Documentation = { "Returns the duration of the fade-out animation for disappearing messages" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -67,9 +58,6 @@ local MessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether messages added to the frame automatically fade out after a period of time" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -81,9 +69,6 @@ local MessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether long lines of text are indented when wrapping" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -95,9 +80,6 @@ local MessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the position at which new messages are added to the frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -109,9 +91,6 @@ local MessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the amount of time for which a message remains visible before beginning to fade out" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{

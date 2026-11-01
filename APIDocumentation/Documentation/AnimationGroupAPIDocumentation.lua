@@ -33,18 +33,12 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Causes animations within the group to complete and stop" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetAnimations",
 			Type = "Function",
 			-- Documentation = { "Returns a list of animations belonging to the group" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -56,9 +50,6 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the duration of a single loop cycle for the group, as determined by its child animations" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -70,9 +61,6 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the starting static translation for the animated region" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -85,9 +73,6 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the current loop state of the group" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -99,9 +84,6 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the looping behavior of the group" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -113,9 +95,6 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the highest order amongst the animations in the group" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -127,9 +106,6 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the current state of the animation group's progress" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -141,9 +117,6 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the group has finished playing" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -155,9 +128,6 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the group is paused" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -169,9 +139,6 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether or not the animation group is pending finish" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -183,9 +150,6 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the group is playing" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -197,18 +161,12 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Pauses animation of the group" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "Play",
 			Type = "Function",
 			-- Documentation = { "Starts animating the group" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetInitialOffset",
@@ -236,9 +194,6 @@ local AnimationGroupAPI =
 			Type = "Function",
 			-- Documentation = { "Stops animation of the group" },
 
-			Arguments =
-			{
-			},
 		},
 	},
 

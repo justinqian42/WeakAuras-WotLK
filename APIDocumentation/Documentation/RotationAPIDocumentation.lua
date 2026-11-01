@@ -15,9 +15,6 @@ local RotationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the animation's rotation amount (in degrees)" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -29,9 +26,6 @@ local RotationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the rotation animation's origin point" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -45,9 +39,6 @@ local RotationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the animation's rotation amount (in radians)" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{

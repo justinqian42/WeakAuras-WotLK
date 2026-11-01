@@ -362,14 +362,15 @@ local Calendar =
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
 				{ Name = "level", Type = "number", Nilable = false },
-				{ Name = "className", Type = "string", Nilable = false },
-				{ Name = "classFileName", Type = "string", Nilable = false },
-				{ Name = "inviteStatus", Type = "number", Nilable = false },
-				{ Name = "modStatus", Type = "number", Nilable = false },
-				{ Name = "inviteIsMine", Type = "bool", Nilable = false },
+				{ Name = "className", Type = "string", Nilable = true },
+				{ Name = "classToken", Type = "string", Nilable = true },
+				{ Name = "inviteStatus", Type = "number", Nilable = true },
+				{ Name = "moderatorStatus", Type = "string", Nilable = true },
+				{ Name = "isMine", Type = "bool", Nilable = false },
 				{ Name = "inviteType", Type = "number", Nilable = false },
+				{ Name = "notes", Type = "string", Nilable = true },
 			},
 		},
 		{
@@ -700,28 +701,35 @@ local Calendar =
 		{
 			Name = "CalendarGetDayEvent",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns fifteen values. Sequence index, sequence length and localized difficulty name follow inviteType.",
+			}, ]]
 
 			Arguments =
 			{
 				{ Name = "monthOffset", Type = "number", Nilable = false },
-				{ Name = "day", Type = "number", Nilable = false },
+				{ Name = "monthDay", Type = "number", Nilable = false },
 				{ Name = "index", Type = "luaIndex", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "title", Type = "string", Nilable = false },
+				{ Name = "title", Type = "string", Nilable = true },
 				{ Name = "hour", Type = "number", Nilable = false },
 				{ Name = "minute", Type = "number", Nilable = false },
 				{ Name = "calendarType", Type = "string", Nilable = false },
 				{ Name = "sequenceType", Type = "string", Nilable = false },
 				{ Name = "eventType", Type = "number", Nilable = false },
 				{ Name = "texture", Type = "string", Nilable = false },
-				{ Name = "modStatus", Type = "number", Nilable = false },
-				{ Name = "inviteStatus", Type = "string", Nilable = false },
+				{ Name = "moderatorStatus", Type = "string", Nilable = false },
+				{ Name = "inviteStatus", Type = "number", Nilable = false },
 				{ Name = "invitedBy", Type = "string", Nilable = false },
 				{ Name = "difficulty", Type = "number", Nilable = false },
-				{ Name = "inviteType", Type = "string", Nilable = false },
+				{ Name = "inviteType", Type = "number", Nilable = false },
+				{ Name = "sequenceIndex", Type = "number", Nilable = false },
+				{ Name = "sequenceLength", Type = "number", Nilable = false },
+				{ Name = "difficultyName", Type = "string", Nilable = false },
 			},
 		},
 		{
@@ -906,18 +914,19 @@ local Calendar =
 			Arguments =
 			{
 				{ Name = "monthOffset", Type = "number", Nilable = false },
-				{ Name = "day", Type = "number", Nilable = false },
+				{ Name = "monthDay", Type = "number", Nilable = false },
 				{ Name = "index", Type = "luaIndex", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "title", Type = "number", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
 				{ Name = "calendarType", Type = "string", Nilable = false },
-				{ Name = "raidID", Type = "number", Nilable = false },
+				{ Name = "eventID", Type = "number", Nilable = false },
 				{ Name = "hour", Type = "number", Nilable = false },
 				{ Name = "minute", Type = "number", Nilable = false },
 				{ Name = "difficulty", Type = "number", Nilable = false },
+				{ Name = "difficultyName", Type = "string", Nilable = false },
 			},
 		},
 		{

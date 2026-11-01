@@ -112,9 +112,11 @@ local StatInformation =
 			Name = "GetExpertise",
 			Type = "Function",
 
+
 			Returns =
 			{
-				{ Name = "expertise", Type = "number", Nilable = false },
+				{ Name = "expertise", Type = "number", Nilable = false, --[[ Documentation = { "Main-hand expertise." } ]] },
+				{ Name = "offhandExpertise", Type = "number", Nilable = false },
 			},
 		},
 		{

@@ -19,6 +19,11 @@ local ClassResource =
 		{
 			Name = "GetRuneCooldown",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Start and duration are seconds. The ready flag is a Lua boolean. A ready rune has start 0 but its returned duration can still be nonzero; use runeReady rather than testing duration == 0.",
+				"Returns no values when the player object is unavailable.",
+			}, ]]
 
 			Arguments =
 			{
@@ -27,9 +32,9 @@ local ClassResource =
 
 			Returns =
 			{
-				{ Name = "start", Type = "number", Nilable = false },
-				{ Name = "duration", Type = "time_t", Nilable = false },
-				{ Name = "runeReady", Type = "bool", Nilable = false },
+				{ Name = "start", Type = "number", Nilable = true },
+				{ Name = "duration", Type = "number", Nilable = true },
+				{ Name = "runeReady", Type = "bool", Nilable = true },
 			},
 		},
 		{

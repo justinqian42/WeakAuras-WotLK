@@ -27,9 +27,6 @@ local PathAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the control points that belong to a given path" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -41,9 +38,6 @@ local PathAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the curveType of the given path" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -55,9 +49,6 @@ local PathAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the maximum order of the control points belonging to a given path" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{

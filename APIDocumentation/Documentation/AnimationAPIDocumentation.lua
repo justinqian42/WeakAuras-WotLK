@@ -16,9 +16,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the time for the animation to progress from start to finish" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -30,9 +27,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the amount of time since the animation began playing" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -44,9 +38,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the amount of time the animation delays after finishing" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -58,18 +49,12 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the maximum number of times per second that the animation will update its progress" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetOrder",
 			Type = "Function",
 			-- Documentation = { "Returns the order of the animation within its parent group" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -81,9 +66,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the progress of an animation, ignoring smoothing effects" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -95,9 +77,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the progress of the animation and associated delays" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -109,9 +88,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the `Region` object on which the animation operates" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -123,9 +99,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the progress of the animation (ignoring start and end delay)" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -137,9 +110,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the smoothing type for the animation" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -151,9 +121,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the amount of time the animation delays before its progress begins" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -165,9 +132,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the animation is currently in the middle of a start or end delay" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -179,9 +143,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the animation has finished playing" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -193,9 +154,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the animation is currently paused" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -207,9 +165,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the animation is currently playing" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -221,9 +176,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the animation is currently stopped" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -235,18 +187,12 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Pauses the animation" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "Play",
 			Type = "Function",
 			-- Documentation = { "Plays the animation" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetDuration",
@@ -273,9 +219,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Sets the maximum number of times per second for the animation to update its progress" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetOrder",
@@ -303,9 +246,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetSmoothing",
@@ -332,9 +272,6 @@ local AnimationAPI =
 			Type = "Function",
 			-- Documentation = { "Stops the animation" },
 
-			Arguments =
-			{
-			},
 		},
 	},
 

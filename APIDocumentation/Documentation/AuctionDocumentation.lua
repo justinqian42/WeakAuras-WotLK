@@ -178,15 +178,23 @@ local Auction =
 		{
 			Name = "GetAuctionSellItemInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns nine values. The two vendor prices describe the selected stack and a single item respectively.",
+			}, ]]
+
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "texture", Type = "string", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "texture", Type = "string", Nilable = true },
 				{ Name = "count", Type = "number", Nilable = false },
-				{ Name = "quality", Type = "itemQuality", Nilable = false },
-				{ Name = "canUse", Type = "1nil", Nilable = false },
-				{ Name = "price", Type = "number", Nilable = false },
+				{ Name = "quality", Type = "ItemQuality", Nilable = false },
+				{ Name = "canUse", Type = "bool", Nilable = true },
+				{ Name = "stackVendorPrice", Type = "number", Nilable = false },
+				{ Name = "unitVendorPrice", Type = "number", Nilable = false },
+				{ Name = "maxStack", Type = "number", Nilable = false },
+				{ Name = "sellableCount", Type = "number", Nilable = false },
 			},
 		},
 		{

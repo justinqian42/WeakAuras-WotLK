@@ -15,9 +15,6 @@ local TranslationAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the animation's translation offsets" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{

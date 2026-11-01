@@ -15,36 +15,24 @@ local ModelAPI =
 			Type = "Function",
 			-- Documentation = { "Advances to the model's next animation frame" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "ClearFog",
 			Type = "Function",
 			-- Documentation = { "Disables fog display for the model." },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "ClearModel",
 			Type = "Function",
 			-- Documentation = { "Removes the 3D model currently displayed" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetFacing",
 			Type = "Function",
 			-- Documentation = { "Returns the model's current rotation setting" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -56,9 +44,6 @@ local ModelAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the model's current fog color" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -72,9 +57,6 @@ local ModelAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the far clipping distance for the model's fog." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -86,9 +68,6 @@ local ModelAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the near clipping distance for the model's fog." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -100,9 +79,6 @@ local ModelAPI =
 			Type = "Function",
 			-- Documentation = { "Returns properties of the light sources used when rendering the model" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -126,9 +102,6 @@ local ModelAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the model file currently displayed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -140,9 +113,6 @@ local ModelAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the scale factor determining the size at which the 3D model appears" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -154,9 +124,6 @@ local ModelAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the position of the 3D model within the frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -317,9 +284,6 @@ local ModelAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -331,36 +295,12 @@ local ModelAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "GetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetDontSavePosition",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 	},
 

@@ -15,9 +15,6 @@ local CheckButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the check button is checked" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -29,9 +26,6 @@ local CheckButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the texture used when the button is checked" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -43,9 +37,6 @@ local CheckButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the texture used when the button is disabled and checked" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -89,9 +80,6 @@ local CheckButtonAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -103,18 +91,12 @@ local CheckButtonAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetMotionScriptsWhileDisabled",
 			Type = "Function",
 			-- Documentation = { "Determines whether [[docs/scripts/OnEnter|OnEnter]]/[[docs/scripts/OnLeave|OnLeave]] scripts will fire while the button is disabled" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -122,22 +104,10 @@ local CheckButtonAPI =
 			},
 		},
 		{
-			Name = "GetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
-		},
-		{
 			Name = "SetDontSavePosition",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetMotionScriptsWhileDisabled",
@@ -147,15 +117,6 @@ local CheckButtonAPI =
 			Arguments =
 			{
 				{ Name = "enabled", Type = "bool", Nilable = false --[[ Documentation = { "True to enable the scripts while the button is disabled, false otherwise" }, ]] },
-			},
-		},
-		{
-			Name = "SetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
 			},
 		},
 	},

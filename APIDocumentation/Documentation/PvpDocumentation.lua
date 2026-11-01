@@ -136,9 +136,10 @@ local Pvp =
 
 			Returns =
 			{
-				{ Name = "status", Type = "string", Nilable = false },
-				{ Name = "mapName", Type = "string", Nilable = false },
-				{ Name = "queueID", Type = "number", Nilable = false },
+				{ Name = "status", Type = "string", Nilable = true },
+				{ Name = "mapName", Type = "string", Nilable = true },
+				{ Name = "queueID", Type = "number", Nilable = true },
+				{ Name = "expiration", Type = "number", Nilable = true, --[[ Documentation = { "Remaining confirmation time, or 0 outside the confirm state." } ]] },
 			},
 		},
 		{

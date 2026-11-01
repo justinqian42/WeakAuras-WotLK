@@ -2,7 +2,7 @@ local PlayerModelAPI =
 {
 	Name = "PlayerModel",
 	Type = "ScriptObject",
-	-- Documentation = { "A model frame specifically designed to display player character models." },
+	--[[ Documentation = { "A model frame that displays units and creatures from cached creature data." }, ]]
 	Inherits =
 	{
 		"Model",
@@ -11,76 +11,22 @@ local PlayerModelAPI =
 	Functions =
 	{
 		{
-			Name = "RefreshCamera",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
-		},
-		{
 			Name = "RefreshUnit",
 			Type = "Function",
 			-- Documentation = { "Updates the model's appearance to match that of its unit" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetBarberShopAlternateForm",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetCamDistanceScale",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetCreature",
 			Type = "Function",
-			-- Documentation = { "Sets the model to display the 3D model of a specific creature" },
+			--[[ Documentation =
+			{
+				"Accepts a creature entry ID, not a display ID. Requires the creature record to be present in the client cache; no model is selected when the record is unavailable.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "creature", Type = "number", Nilable = false --[[ Documentation = { "Numeric ID of a creature" }, ]] },
-			},
-		},
-		{
-			Name = "SetCustomRace",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetDisplayInfo",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetPortraitZoom",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
+				{ Name = "creatureID", Type = "number", Nilable = false },
 			},
 		},
 		{

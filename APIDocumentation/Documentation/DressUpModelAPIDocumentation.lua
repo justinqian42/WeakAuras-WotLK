@@ -15,9 +15,6 @@ local DressUpModelAPI =
 			Type = "Function",
 			-- Documentation = { "Updates the model to reflect the character's currently equipped items" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "TryOn",
@@ -36,18 +33,6 @@ local DressUpModelAPI =
 			Type = "Function",
 			-- Documentation = { "Updates the model to reflect the character's appearance without any equipped items" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "UndressSlot",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 	},
 

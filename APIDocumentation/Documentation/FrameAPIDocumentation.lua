@@ -12,13 +12,46 @@ local FrameAPI =
 	Functions =
 	{
 		{
-			Name = "AllowAttributeChanges",
+			Name = "CanChangeAttribute",
 			Type = "Function",
-			-- Documentation = { "Temporarily allows insecure code to modify attributes on the Frame during combat." },
+			--[[ Documentation =
+			{
+				"Reports whether the current execution context may change this frame attributes.",
+			}, ]]
+
+
+			Returns =
+			{
+				{ Name = "allowed", Type = "bool", Nilable = true },
+			},
+		},
+		{
+			Name = "SetDontSavePosition",
+			Type = "Function",
 
 			Arguments =
 			{
+				{ Name = "dontSave", Type = "bool", Nilable = true, Default = true },
 			},
+		},
+		{
+			Name = "GetDontSavePosition",
+			Type = "Function",
+
+
+			Returns =
+			{
+				{ Name = "dontSave", Type = "bool", Nilable = true },
+			},
+		},
+		{
+			Name = "AllowAttributeChanges",
+			Type = "Function",
+			--[[ Documentation =
+			{
+				"Only untainted execution can enable attribute changes through this method. Calling it from an addon does not grant permission to modify protected attributes in combat.",
+			}, ]]
+
 		},
 		{
 			Name = "CreateFontString",
@@ -35,19 +68,21 @@ local FrameAPI =
 		{
 			Name = "CreateTexture",
 			Type = "Function",
-			-- Documentation = { "Creates a new Texture for the Frame on the given layer, optionally inheriting from a template." },
+			--[[ Documentation =
+			{
+				"Creates a texture with an optional name, draw layer and template. Additional arguments are ignored.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "name", Type = "string", Nilable = false --[[ Documentation = { "Global name for the new texture" }, ]] },
-				{ Name = "layer", Type = "string, layer", Nilable = false --[[ Documentation = { "Graphic layer on which to create the texture; defaults to ARTWORK if not specified" }, ]] },
-				{ Name = "inherits", Type = "string", Nilable = false --[[ Documentation = { "Name of a template from which the new texture should inherit" }, ]] },
-				{ Name = "sublevel", Type = "number", Nilable = false --[[ Documentation = { "The sub-level on the given graphics layer ranging from -8- to 7. The default value of this argument is 0" }, ]] },
+				{ Name = "name", Type = "cstring", Nilable = true },
+				{ Name = "layer", Type = "DrawLayer", Nilable = true, Default = "ARTWORK" },
+				{ Name = "inherits", Type = "cstring", Nilable = true },
 			},
 
 			Returns =
 			{
-				{ Name = "texture", Type = "texture", Nilable = false --[[ Documentation = { "Reference to the new Texture object" }, ]] },
+				{ Name = "texture", Type = "SimpleTexture", Nilable = false },
 			},
 		},
 		{
@@ -55,9 +90,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Creates a title region for the frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -144,9 +176,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the backdrop information for the frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -158,9 +187,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the frame's backdrop border color" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -175,9 +201,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the frame's backdrop color" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -192,9 +215,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the frame's boundaries" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -209,9 +229,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the list of child frames" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -223,9 +240,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the rect insets for the clampedtoscreen system" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -240,9 +254,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -254,9 +265,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the frame's effective alpha" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -268,9 +276,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -282,9 +287,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the frame's effective scale" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -296,9 +298,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the current frame level" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -310,9 +309,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the current framestrata" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -320,22 +316,10 @@ local FrameAPI =
 			},
 		},
 		{
-			Name = "GetFrameType",
-			Type = "Function",
-			-- Documentation = { "Returns the type of the frame, as a string" },
-
-			Arguments =
-			{
-			},
-		},
-		{
 			Name = "GetHitRectInsets",
 			Type = "Function",
 			-- Documentation = { "Returns the inserts for the frame's HitRect" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -350,9 +334,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the frame's numeric identifier" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -364,9 +345,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the maximum resize width and height" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -379,9 +357,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the minimum resize height and width" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -394,9 +369,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the number of children this frame has" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -408,9 +380,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the number of regions belonging to this frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -422,9 +391,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the regions (fontstrings, textures) that belong to this frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -436,9 +402,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the scale of the frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -450,9 +413,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the TitleRegion object for the frame." },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -474,9 +434,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether or not the frame is clamped to the screen" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -486,25 +443,15 @@ local FrameAPI =
 		{
 			Name = "IsEventRegistered",
 			Type = "Function",
-			-- Documentation = { "Returns whether or not the frame is registered for the given event" },
 
 			Arguments =
 			{
-				{ Name = "event", Type = "string", Nilable = false --[[ Documentation = { "Name of an event" }, ]] },
+				{ Name = "event", Type = "string", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "registered", Type = "1nil", Nilable = false --[[ Documentation = { "1 if the frame is registered for the event; otherwise nil" }, ]] },
-			},
-		},
-		{
-			Name = "IsFrameType",
-			Type = "Function",
-			-- Documentation = { "Returns whether or not the frame is of the given type" },
-
-			Arguments =
-			{
+				{ Name = "registered", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -512,9 +459,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -526,9 +470,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -536,31 +477,10 @@ local FrameAPI =
 			},
 		},
 		{
-			Name = "IsJumpNavigateEnabled",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "IsJumpNavigateStart",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
-		},
-		{
 			Name = "IsKeyboardEnabled",
 			Type = "Function",
 			-- Documentation = { "Returns whether or not the frame is keyboard enabled" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -572,9 +492,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether or not the frame is mouse enabled" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -586,9 +503,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether or not the frame is mouse wheel enabled" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -600,9 +514,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether or not the frame is movable" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -614,9 +525,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether or not the frame is resizable" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -628,9 +536,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether or not the frame is at the top level" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -642,9 +547,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether or not the frame is flagged as \"user placed\"" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -656,36 +558,30 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Lowers the frame's frameLevel" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "Raise",
 			Type = "Function",
 			-- Documentation = { "Raises the frame's frameLevel" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "RegisterAllEvents",
 			Type = "Function",
 			-- Documentation = { "Registers the frame for all events" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "RegisterEvent",
 			Type = "Function",
-			-- Documentation = { "Registers the frame for an event" },
+			--[[ Documentation =
+			{
+				"Registers a named event. Returns no values; an unknown event name is ignored without a success result. Use IsEventRegistered to check registration. This is not RegisterUnitEvent.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "event", Type = "string", Nilable = false --[[ Documentation = { "Name of an event" }, ]] },
+				{ Name = "event", Type = "string", Nilable = false },
 			},
 		},
 		{
@@ -751,9 +647,6 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Sets the clamp rect insets for the frame, so portion of it could move offscreen" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetClampedToScreen",
@@ -816,24 +709,6 @@ local FrameAPI =
 			Arguments =
 			{
 				{ Name = "id", Type = "number", Nilable = false --[[ Documentation = { "A numeric identifier for the frame" }, ]] },
-			},
-		},
-		{
-			Name = "SetJumpNavigateEnabled",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetJumpNavigateStart",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
 			},
 		},
 		{
@@ -913,36 +788,24 @@ local FrameAPI =
 			Type = "Function",
 			-- Documentation = { "Start moving the frame" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "StartSizing",
 			Type = "Function",
 			-- Documentation = { "Start resizing the frame" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "StopMovingOrSizing",
 			Type = "Function",
 			-- Documentation = { "Stops the frame from being moved or resized, and saves the position in layout-cache.txt" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "UnregisterAllEvents",
 			Type = "Function",
 			-- Documentation = { "Unregisters all events for the frame" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "UnregisterEvent",

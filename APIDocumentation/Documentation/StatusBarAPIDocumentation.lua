@@ -15,9 +15,6 @@ local StatusBarAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the minimum and maximum values of the status bar" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -30,9 +27,6 @@ local StatusBarAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the orientation of the status bar" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -44,9 +38,6 @@ local StatusBarAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the status bar's texture is rotated to match its orientation" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -58,9 +49,6 @@ local StatusBarAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the color shading used for the status bar's texture" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -75,9 +63,6 @@ local StatusBarAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the `Texture` object used for drawing the filled-in portion of the status bar" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -89,9 +74,6 @@ local StatusBarAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the current value of the status bar" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -169,9 +151,6 @@ local StatusBarAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{

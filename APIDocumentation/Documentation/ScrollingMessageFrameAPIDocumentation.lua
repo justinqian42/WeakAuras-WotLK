@@ -31,9 +31,6 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the message frame is currently scrolled to the bottom of its contents" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -45,9 +42,6 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether the message frame is currently scrolled to the top of its contents" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -59,18 +53,12 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Removes all messages stored or displayed in the frame" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetCurrentLine",
 			Type = "Function",
 			-- Documentation = { "Returns a number identifying the last message added to the frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -82,9 +70,6 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the message frame's current scroll position" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -96,9 +81,6 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the duration of the fade-out animation for disappearing messages" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -110,9 +92,6 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether messages added to the frame automatically fade out after a period of time" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -124,9 +103,6 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether hyperlinks in the frame's text are interactive" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -138,9 +114,6 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether long lines of text are indented when wrapping" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -152,9 +125,6 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the position at which new messages are added to the frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -176,18 +146,12 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetNumLinesDisplayed",
 			Type = "Function",
 			-- Documentation = { "Returns the number of lines displayed in the message frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -199,9 +163,6 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the number of messages currently kept in the frame's message history" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -213,9 +174,6 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the amount of time for which a message remains visible before beginning to fade out" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -227,63 +185,42 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Scrolls the message frame's contents down by one page" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "PageUp",
 			Type = "Function",
 			-- Documentation = { "Scrolls the message frame's contents up by one page" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "RemoveMessagesByAccessID",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "ScrollDown",
 			Type = "Function",
 			-- Documentation = { "Scrolls the message frame's contents down by two lines" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "ScrollToBottom",
 			Type = "Function",
 			-- Documentation = { "Scrolls to the bottom of the message frame's contents" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "ScrollToTop",
 			Type = "Function",
 			-- Documentation = { "Scrolls to the top of the message frame's contents" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "ScrollUp",
 			Type = "Function",
 			-- Documentation = { "Scrolls the message frame's contents up by two lines" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetFadeDuration",
@@ -383,9 +320,6 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -397,36 +331,12 @@ local ScrollingMessageFrameAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "GetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetDontSavePosition",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 	},
 

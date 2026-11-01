@@ -24,20 +24,24 @@ local Glyph =
 		{
 			Name = "GetGlyphSocketInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns four values: enabled, glyph type, glyph spell ID and icon. There is no glyphTooltipIndex return value.",
+				"Returns no values when the socket, player or talent group is unavailable. The enabled flag uses 1/nil.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "socket", Type = "number", Nilable = false },
-				{ Name = "talentGroup", Type = "number", Nilable = false },
+				{ Name = "socket", Type = "number", Nilable = false, --[[ Documentation = { "One-based glyph socket index." } ]] },
+				{ Name = "talentGroup", Type = "number", Nilable = true, --[[ Documentation = { "Defaults to the local active talent group." } ]] },
 			},
 
 			Returns =
 			{
-				{ Name = "enabled", Type = "bool", Nilable = false },
-				{ Name = "glyphType", Type = "number", Nilable = false },
-				{ Name = "glyphTooltipIndex", Type = "luaIndex", Nilable = false },
-				{ Name = "glyphSpell", Type = "number", Nilable = false },
-				{ Name = "icon", Type = "string", Nilable = false },
+				{ Name = "enabled", Type = "bool", Nilable = true },
+				{ Name = "glyphType", Type = "number", Nilable = true },
+				{ Name = "glyphSpell", Type = "number", Nilable = true },
+				{ Name = "icon", Type = "string", Nilable = true },
 			},
 		},
 		{

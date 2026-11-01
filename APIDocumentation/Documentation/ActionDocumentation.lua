@@ -80,6 +80,11 @@ local Action =
 		{
 			Name = "GetActionInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"For spell actions, the second result is a one-based spellbook slot and the fourth is the spell ID. For companion actions, the second result is a companion index.",
+				"Item and macro actions return only type and item ID/macro index. Equipment-set actions return type and set name. Empty or unresolved actions return no values.",
+			}, ]]
 
 			Arguments =
 			{
@@ -88,10 +93,10 @@ local Action =
 
 			Returns =
 			{
-				{ Name = "type", Type = "string", Nilable = false },
-				{ Name = "id", Type = "number", Nilable = false },
-				{ Name = "subType", Type = "string", Nilable = false },
-				{ Name = "spellID", Type = "number", Nilable = false },
+				{ Name = "type", Type = "string", Nilable = true },
+				{ Name = "id", Type = "LuaValueVariant", Nilable = true },
+				{ Name = "subType", Type = "string", Nilable = true },
+				{ Name = "spellID", Type = "number", Nilable = true },
 			},
 		},
 		{

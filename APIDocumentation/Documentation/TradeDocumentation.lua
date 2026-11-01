@@ -77,6 +77,10 @@ local Trade =
 		{
 			Name = "GetTradePlayerItemInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns five values. The final value is the enchantment spell name for the non-traded slot when applicable.",
+			}, ]]
 
 			Arguments =
 			{
@@ -85,12 +89,11 @@ local Trade =
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "texture", Type = "string", Nilable = false },
-				{ Name = "numItems", Type = "number", Nilable = false },
-				{ Name = "quality", Type = "itemQuality", Nilable = false },
-				{ Name = "isUsable", Type = "bool", Nilable = false },
-				{ Name = "enchantment", Type = "string", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "texture", Type = "string", Nilable = true },
+				{ Name = "count", Type = "number", Nilable = false },
+				{ Name = "quality", Type = "ItemQuality", Nilable = false },
+				{ Name = "enchantment", Type = "string", Nilable = true },
 			},
 		},
 		{

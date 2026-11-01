@@ -11,22 +11,55 @@ local CooldownAPI =
 	Functions =
 	{
 		{
-			Name = "SetCooldown",
+			Name = "GetReverse",
 			Type = "Function",
-			-- Documentation = { "Sets up the parameters for a Cooldown model." },
+
+
+			Returns =
+			{
+				{ Name = "reverse", Type = "bool", Nilable = false },
+			},
+		},
+		{
+			Name = "SetDrawEdge",
+			Type = "Function",
 
 			Arguments =
 			{
+				{ Name = "drawEdge", Type = "bool", Nilable = true, Default = true },
+			},
+		},
+		{
+			Name = "GetDrawEdge",
+			Type = "Function",
+
+
+			Returns =
+			{
+				{ Name = "drawEdge", Type = "bool", Nilable = false },
+			},
+		},
+		{
+			Name = "SetCooldown",
+			Type = "Function",
+			--[[ Documentation =
+			{
+				"Start and duration are seconds. Start uses the GetTime() time base. No modRate argument is read.",
+			}, ]]
+
+			Arguments =
+			{
+				{ Name = "start", Type = "number", Nilable = false },
+				{ Name = "duration", Type = "number", Nilable = false },
 			},
 		},
 		{
 			Name = "SetReverse",
 			Type = "Function",
-			-- Documentation = { "Sets the cooldown model to be animated in reverse." },
 
 			Arguments =
 			{
-				{ Name = "reverse", Type = "bool", Nilable = false --[[ Documentation = { "True for an animation \"sweeping\" an area of darkness over the underlying image; false for the default animation of darkening the underlying image and \"sweeping\" the darkened area away" }, ]] },
+				{ Name = "reverse", Type = "bool", Nilable = true, Default = true },
 			},
 		},
 	},

@@ -15,9 +15,6 @@ local ScrollFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the scroll frame's current horizontal scroll position" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -29,9 +26,6 @@ local ScrollFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the scroll frame's maximum horizontal (rightmost) scroll position" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -43,9 +37,6 @@ local ScrollFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the frame scrolled by the scroll frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -57,9 +48,6 @@ local ScrollFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the scroll frame's current vertical scroll position" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -71,9 +59,6 @@ local ScrollFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the scroll frame's maximum vertical (bottom) scroll position" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -115,18 +100,12 @@ local ScrollFrameAPI =
 			Type = "Function",
 			-- Documentation = { "Updates the position of the scroll frame's child" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "CanChangeAttribute",
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -138,36 +117,12 @@ local ScrollFrameAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "GetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetDontSavePosition",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 	},
 

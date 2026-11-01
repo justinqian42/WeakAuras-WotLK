@@ -13,12 +13,12 @@ local Unit =
 			Arguments =
 			{
 				{ Name = "unit", Type = "UnitToken", Nilable = false },
-				{ Name = "showError", Type = "bool", Nilable = false },
+				{ Name = "showError", Type = "bool", Nilable = true, Default = false },
 			},
 
 			Returns =
 			{
-				{ Name = "canInspect", Type = "bool", Nilable = false },
+				{ Name = "canInspect", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -190,29 +190,37 @@ local Unit =
 		{
 			Name = "UnitAura",
 			Type = "Function",
+			--[=[ Documentation =
+			{
+				"UnitAura(unit, index [, filter]) or UnitAura(unit, name [, rank [, filter]]). The numeric argument is an aura index, not a spell ID.",
+				"Returns no values when no matching aura is available. The aura index is a position in the filtered list and is not a stable aura identifier.",
+				"Filters are separated by spaces or |: HELPFUL, HARMFUL, PLAYER, RAID, CANCELABLE, NOT_CANCELABLE. RAID uses the client raid-buff/dispel filters.",
+				"Defaults to HELPFUL; the last HELPFUL/HARMFUL token selects the list.",
+				"For units represented only by cached group data, count is 1, duration and expires are 0, and caster and isStealable are nil. Zero duration does not necessarily mean a permanent aura.",
+				"Returns eleven values, ending with isStealable, shouldConsolidate and spellID.",
+			}, ]=]
 
 			Arguments =
 			{
-				{ Name = "unit", Type = "UnitToken", Nilable = true },
-				{ Name = "index", Type = "luaIndex", Nilable = true },
-				{ Name = "name", Type = "string", Nilable = true },
-				{ Name = "rank", Type = "string", Nilable = true },
-				{ Name = "filter", Type = "string", Nilable = true },
+				{ Name = "unit", Type = "UnitToken", Nilable = false },
+				{ Name = "indexOrName", Type = "LuaValueVariant", Nilable = false },
+				{ Name = "rankOrFilter", Type = "string", Nilable = true, --[[ Documentation = { "Filter for an index lookup; rank for a name lookup." } ]] },
+				{ Name = "filter", Type = "string", Nilable = true, --[[ Documentation = { "Used by a name lookup; pass nil for rank when filtering by name without a rank." } ]] },
 			},
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "rank", Type = "string", Nilable = false },
-				{ Name = "icon", Type = "string", Nilable = false },
-				{ Name = "count", Type = "number", Nilable = false },
-				{ Name = "dispelType", Type = "string", Nilable = false },
-				{ Name = "duration", Type = "time_t", Nilable = false },
-				{ Name = "expires", Type = "number", Nilable = false },
-				{ Name = "caster", Type = "string", Nilable = false },
-				{ Name = "isStealable", Type = "1nil", Nilable = false },
-				{ Name = "shouldConsolidate", Type = "bool", Nilable = false },
-				{ Name = "spellID", Type = "number", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "rank", Type = "string", Nilable = true },
+				{ Name = "icon", Type = "string", Nilable = true },
+				{ Name = "count", Type = "number", Nilable = true },
+				{ Name = "dispelType", Type = "string", Nilable = true },
+				{ Name = "duration", Type = "number", Nilable = true, --[[ Documentation = { "Seconds; zero when no duration is available." } ]] },
+				{ Name = "expires", Type = "number", Nilable = true, --[[ Documentation = { "Expiration time in seconds on the GetTime() time base, or zero." } ]] },
+				{ Name = "caster", Type = "UnitToken", Nilable = true, --[[ Documentation = { "An available unit token for the caster or its owner, not a GUID; may be nil." } ]] },
+				{ Name = "isStealable", Type = "bool", Nilable = true },
+				{ Name = "shouldConsolidate", Type = "bool", Nilable = true },
+				{ Name = "spellID", Type = "number", Nilable = true },
 			},
 		},
 		{
@@ -263,6 +271,11 @@ local Unit =
 		{
 			Name = "UnitCastingInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns no values if the unit is unavailable or is not currently casting.",
+				"Start and end times are milliseconds on the GetTime() time base. The rank is the second return value; startTime is fifth and endTime is sixth. No spell ID is returned.",
+			}, ]]
 
 			Arguments =
 			{
@@ -271,20 +284,25 @@ local Unit =
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "subText", Type = "string", Nilable = false },
-				{ Name = "text", Type = "string", Nilable = false },
-				{ Name = "texture", Type = "string", Nilable = false },
-				{ Name = "startTime", Type = "time_t", Nilable = false },
-				{ Name = "endTime", Type = "time_t", Nilable = false },
-				{ Name = "isTradeSkill", Type = "bool", Nilable = false },
-				{ Name = "castID", Type = "number", Nilable = false },
-				{ Name = "notInterruptible", Type = "bool", Nilable = false },
+				{ Name = "name", Type = "cstring", Nilable = true },
+				{ Name = "subText", Type = "string", Nilable = true },
+				{ Name = "text", Type = "string", Nilable = true },
+				{ Name = "texture", Type = "string", Nilable = true },
+				{ Name = "startTime", Type = "number", Nilable = true, --[[ Documentation = { "Milliseconds." } ]] },
+				{ Name = "endTime", Type = "number", Nilable = true, --[[ Documentation = { "Milliseconds." } ]] },
+				{ Name = "isTradeSkill", Type = "bool", Nilable = true },
+				{ Name = "castID", Type = "number", Nilable = true, --[[ Documentation = { "Cast counter; not a spell ID." } ]] },
+				{ Name = "notInterruptible", Type = "bool", Nilable = true },
 			},
 		},
 		{
 			Name = "UnitChannelInfo",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns no values if the unit is unavailable or is not currently channeling.",
+				"Start and end times are milliseconds on the GetTime() time base. The rank is the second return value; startTime is fifth and endTime is sixth. No spell ID is returned.",
+			}, ]]
 
 			Arguments =
 			{
@@ -293,14 +311,14 @@ local Unit =
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "subText", Type = "string", Nilable = false },
-				{ Name = "text", Type = "string", Nilable = false },
-				{ Name = "texture", Type = "string", Nilable = false },
-				{ Name = "startTime", Type = "time_t", Nilable = false },
-				{ Name = "endTime", Type = "time_t", Nilable = false },
-				{ Name = "isTradeSkill", Type = "bool", Nilable = false },
-				{ Name = "notInterruptible", Type = "bool", Nilable = false },
+				{ Name = "name", Type = "cstring", Nilable = true },
+				{ Name = "subText", Type = "string", Nilable = true },
+				{ Name = "text", Type = "string", Nilable = true },
+				{ Name = "texture", Type = "string", Nilable = true },
+				{ Name = "startTime", Type = "number", Nilable = true, --[[ Documentation = { "Milliseconds." } ]] },
+				{ Name = "endTime", Type = "number", Nilable = true, --[[ Documentation = { "Milliseconds." } ]] },
+				{ Name = "isTradeSkill", Type = "bool", Nilable = true },
+				{ Name = "notInterruptible", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -380,27 +398,37 @@ local Unit =
 		{
 			Name = "UnitDebuff",
 			Type = "Function",
+			--[=[ Documentation =
+			{
+				"UnitDebuff(unit, index [, filter]) or UnitDebuff(unit, name [, rank [, filter]]). The numeric argument is an aura index, not a spell ID.",
+				"Returns no values when no matching aura is available. The aura index is a position in the filtered list and is not a stable aura identifier.",
+				"Filters are separated by spaces or |: HELPFUL, HARMFUL, PLAYER, RAID, CANCELABLE, NOT_CANCELABLE. RAID uses the client raid-buff/dispel filters.",
+				"Always selects harmful auras.",
+				"For units represented only by cached group data, count is 1, duration and expires are 0, and caster and isStealable are nil. Zero duration does not necessarily mean a permanent aura.",
+				"Returns eleven values, ending with isStealable, shouldConsolidate and spellID.",
+			}, ]=]
 
 			Arguments =
 			{
-				{ Name = "unit", Type = "UnitToken", Nilable = true },
-				{ Name = "index", Type = "luaIndex", Nilable = true },
-				{ Name = "name", Type = "string", Nilable = true },
-				{ Name = "rank", Type = "string", Nilable = true },
-				{ Name = "filter", Type = "string", Nilable = true },
+				{ Name = "unit", Type = "UnitToken", Nilable = false },
+				{ Name = "indexOrName", Type = "LuaValueVariant", Nilable = false },
+				{ Name = "rankOrFilter", Type = "string", Nilable = true, --[[ Documentation = { "Filter for an index lookup; rank for a name lookup." } ]] },
+				{ Name = "filter", Type = "string", Nilable = true, --[[ Documentation = { "Used by a name lookup; pass nil for rank when filtering by name without a rank." } ]] },
 			},
 
 			Returns =
 			{
-				{ Name = "name", Type = "string", Nilable = false },
-				{ Name = "rank", Type = "string", Nilable = false },
-				{ Name = "icon", Type = "string", Nilable = false },
-				{ Name = "count", Type = "number", Nilable = false },
-				{ Name = "dispelType", Type = "string", Nilable = false },
-				{ Name = "duration", Type = "time_t", Nilable = false },
-				{ Name = "expires", Type = "number", Nilable = false },
-				{ Name = "caster", Type = "string", Nilable = false },
-				{ Name = "isStealable", Type = "1nil", Nilable = false },
+				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "rank", Type = "string", Nilable = true },
+				{ Name = "icon", Type = "string", Nilable = true },
+				{ Name = "count", Type = "number", Nilable = true },
+				{ Name = "dispelType", Type = "string", Nilable = true },
+				{ Name = "duration", Type = "number", Nilable = true, --[[ Documentation = { "Seconds; zero when no duration is available." } ]] },
+				{ Name = "expires", Type = "number", Nilable = true, --[[ Documentation = { "Expiration time in seconds on the GetTime() time base, or zero." } ]] },
+				{ Name = "caster", Type = "UnitToken", Nilable = true, --[[ Documentation = { "An available unit token for the caster or its owner, not a GUID; may be nil." } ]] },
+				{ Name = "isStealable", Type = "bool", Nilable = true },
+				{ Name = "shouldConsolidate", Type = "bool", Nilable = true },
+				{ Name = "spellID", Type = "number", Nilable = true },
 			},
 		},
 		{
@@ -437,6 +465,10 @@ local Unit =
 		{
 			Name = "UnitGUID",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns a hexadecimal string with a 0x prefix and sixteen hexadecimal digits, or nil if no unit GUID is available. Keep the full GUID as a string to avoid numeric precision loss.",
+			}, ]]
 
 			Arguments =
 			{
@@ -445,7 +477,7 @@ local Unit =
 
 			Returns =
 			{
-				{ Name = "guid", Type = "WOWGUID", Nilable = false },
+				{ Name = "guid", Type = "WOWGUID", Nilable = true },
 			},
 		},
 		{
@@ -523,6 +555,10 @@ local Unit =
 		{
 			Name = "UnitInRaid",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns the zero-based raid roster index, or nil when the unit is not in the raid. Add 1 when passing this index to GetRaidRosterInfo.",
+			}, ]]
 
 			Arguments =
 			{
@@ -531,22 +567,26 @@ local Unit =
 
 			Returns =
 			{
-				{ Name = "inRaid", Type = "number", Nilable = false },
+				{ Name = "raidIndex", Type = "number", Nilable = true },
 			},
 		},
 		{
 			Name = "UnitInRange",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns 1 when a locally available group member or pet is within 40 yards of the active mover, using three-dimensional distance; otherwise nil.",
+				"Nil also covers unavailable or unsupported units, not only measured distances above 40 yards. There is no second checkedRange return value.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "unit", Type = "UnitToken", Nilable = true },
-				{ Name = "name", Type = "string", Nilable = true },
+				{ Name = "unit", Type = "UnitToken", Nilable = false },
 			},
 
 			Returns =
 			{
-				{ Name = "inRange", Type = "bool", Nilable = false },
+				{ Name = "inRange", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -921,6 +961,10 @@ local Unit =
 		{
 			Name = "UnitIsVisible",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Tests whether the unit has a local client object. This is not a line-of-sight or on-screen visibility test.",
+			}, ]]
 
 			Arguments =
 			{
@@ -929,7 +973,7 @@ local Unit =
 
 			Returns =
 			{
-				{ Name = "isVisible", Type = "bool", Nilable = false },
+				{ Name = "visible", Type = "bool", Nilable = true },
 			},
 		},
 		{
@@ -1080,11 +1124,16 @@ local Unit =
 		{
 			Name = "UnitPower",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns power in the units shown by the UI. Accepts a unit and an optional power type; additional arguments are ignored.",
+				"An unavailable unit or unavailable power value can return 0. Cached group data contains only the currently reported power type.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "unitID", Type = "string", Nilable = false },
-				{ Name = "powerType", Type = "string", Nilable = true },
+				{ Name = "unit", Type = "UnitToken", Nilable = false },
+				{ Name = "powerType", Type = "number", Nilable = true, --[[ Documentation = { "Defaults to the unit current power type." } ]] },
 			},
 
 			Returns =
@@ -1095,16 +1144,21 @@ local Unit =
 		{
 			Name = "UnitPowerMax",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Returns power in the units shown by the UI. Accepts a unit and an optional power type; additional arguments are ignored.",
+				"An unavailable unit or unavailable power value can return 0. Cached group data contains only the currently reported power type.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "unitID", Type = "UnitToken", Nilable = false },
-				{ Name = "powerType", Type = "number", Nilable = true },
+				{ Name = "unit", Type = "UnitToken", Nilable = false },
+				{ Name = "powerType", Type = "number", Nilable = true, --[[ Documentation = { "Defaults to the unit current power type." } ]] },
 			},
 
 			Returns =
 			{
-				{ Name = "maxValue", Type = "number", Nilable = false },
+				{ Name = "maxPower", Type = "number", Nilable = false },
 			},
 		},
 		{
@@ -1238,6 +1292,11 @@ local Unit =
 			Name = "UnitAura",
 			Type = "Event",
 			LiteralName = "UNIT_AURA",
+			--[[ Documentation =
+			{
+				"Fires with the unit token when its auras change. Re-scan the current aura list; multiple changes may be combined into one event.",
+			}, ]]
+
 			Payload =
 			{
 				{ Name = "unitID", Type = "UnitToken", Nilable = false },

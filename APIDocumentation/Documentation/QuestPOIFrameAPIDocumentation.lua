@@ -11,139 +11,105 @@ local QuestPOIFrameAPI =
 	Functions =
 	{
 		{
-			Name = "DrawBlob",
+			Name = "DrawQuestBlob",
 			Type = "Function",
-			-- Documentation = { "Draws the Blob for the Quest." },
+			--[[ Documentation =
+			{
+				"Adds or removes the quest area for a quest ID. The second argument controls whether to show it; omitting it removes the quest.",
+			}, ]]
 
 			Arguments =
 			{
+				{ Name = "questID", Type = "number", Nilable = false },
+				{ Name = "show", Type = "bool", Nilable = true, Default = false },
 			},
 		},
 		{
-			Name = "DrawNone",
+			Name = "UpdateQuestPOI",
 			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
+			--[[ Documentation =
 			{
-			},
+				"This method has no effect.",
+			}, ]]
+
 		},
 		{
 			Name = "EnableMerging",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "EnableSmoothing",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetNumTooltips",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "GetTooltipIndex",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetBorderAlpha",
 			Type = "Function",
 			-- Documentation = { "Set the alpha for the border texture" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetBorderScalar",
 			Type = "Function",
 			-- Documentation = { "Set the Border Scalar" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetBorderTexture",
 			Type = "Function",
 			-- Documentation = { "Sets the border Texture for the Blob" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetFillAlpha",
 			Type = "Function",
 			-- Documentation = { "Set the Alpha for the fill Texture" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetFillTexture",
 			Type = "Function",
 			-- Documentation = { "Set the fill Texture for the Blob." },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetMergeThreshold",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetNumSplinePoints",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "UpdateMouseOverTooltip",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "CanChangeAttribute",
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -155,36 +121,12 @@ local QuestPOIFrameAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "GetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetDontSavePosition",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 	},
 

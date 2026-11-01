@@ -16,9 +16,6 @@ local SimpleHTMLAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the format string used for displaying hyperlinks in the frame" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -30,9 +27,6 @@ local SimpleHTMLAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether hyperlinks in the frame's text are interactive" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -100,9 +94,6 @@ local SimpleHTMLAPI =
 			Type = "Function",
 			-- Documentation = { "Returns whether secure frame attributes can currently be changed" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
@@ -114,36 +105,12 @@ local SimpleHTMLAPI =
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "GetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 		{
 			Name = "SetDontSavePosition",
 			Type = "Function",
 			-- Documentation = { "This function is not yet documented" },
 
-			Arguments =
-			{
-			},
-		},
-		{
-			Name = "SetPropagateKeyboardInput",
-			Type = "Function",
-			-- Documentation = { "This function is not yet documented" },
-
-			Arguments =
-			{
-			},
 		},
 	},
 

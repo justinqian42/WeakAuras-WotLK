@@ -9,32 +9,51 @@ local Sound =
 		{
 			Name = "PlayMusic",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Plays a music file. Returns 1 after dispatching the request; no sound handle is returned.",
+			}, ]]
 
 			Arguments =
 			{
 				{ Name = "musicfile", Type = "string", Nilable = false },
 			},
 
+			Returns =
+			{
+				{ Name = "dispatched", Type = "number", Nilable = false, --[[ Documentation = { "Always 1 after a valid call." } ]] },
+			},
 		},
 		{
 			Name = "PlaySound",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Plays a sound by its sound-kit name or numeric ID. Returns no values. Additional arguments are ignored.",
+			}, ]]
 
 			Arguments =
 			{
-				{ Name = "sound", Type = "string", Nilable = false },
+				{ Name = "sound", Type = "LuaValueVariant", Nilable = false },
 			},
-
 		},
 		{
 			Name = "PlaySoundFile",
 			Type = "Function",
+			--[[ Documentation =
+			{
+				"Plays a sound file and returns 1 after requesting playback. Additional arguments are ignored. The return value does not indicate whether the sound was audible.",
+			}, ]]
 
 			Arguments =
 			{
 				{ Name = "soundFile", Type = "string", Nilable = false },
 			},
 
+			Returns =
+			{
+				{ Name = "dispatched", Type = "number", Nilable = false, --[[ Documentation = { "Always 1 after a valid call." } ]] },
+			},
 		},
 		{
 			Name = "Sound_ChatSystem_GetInputDriverNameByIndex",

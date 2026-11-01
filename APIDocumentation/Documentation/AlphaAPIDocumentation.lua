@@ -15,9 +15,6 @@ local AlphaAPI =
 			Type = "Function",
 			-- Documentation = { "Returns the animation's amount of alpha (opacity) change" },
 
-			Arguments =
-			{
-			},
 
 			Returns =
 			{
